@@ -1,0 +1,14 @@
+{
+  "name": "gender-predictor",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Chinese Gender Predictor -- free baby gender prediction tool",
+  "scripts": {
+    "dev": "powershell -File start.ps1",
+    "dev:raw": "node server.mjs",
+    "build": "node build.mjs",
+    "start": "node server.mjs"
+  },
+  "keywords": ["gender-predictor", "chinese-gender-predictor", "baby-gender-prediction"],
+  "license": "MIT"
+}

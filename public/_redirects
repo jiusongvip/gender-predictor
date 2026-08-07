@@ -1,0 +1,4 @@
+# Redirect trailing slash variants to canonical URLs
+/blog /blog/ 301
+/about /about/ 301
+/privacy /privacy/ 301

@@ -1,0 +1,32 @@
+# Gender Predictor
+> Free baby gender prediction tool combining 8 methods: Chinese calendar, Ramzi theory, nub theory, heart rate, old wives tales, baking soda test, skull theory, and ring test.
+
+## Tool
+- /: Main prediction tool with all 8 methods combined, plus baby name finder and countdown timer
+
+## Methods
+- /chinese-gender-chart/: Chinese gender calendar predictor with full calendar table
+- /baking-soda-gender-test/: Baking soda gender test guide and interactive predictor
+- /ring-gender-test/: Wedding ring pendulum test guide
+- /baby-gender-prediction-quiz/: 15-question old wives tales quiz
+- /boy-or-girl-quiz/: Quick boy or girl prediction quiz
+
+## Comparisons
+- /chinese-calendar-vs-ramzi-theory/: Chinese calendar vs Ramzi theory comparison
+- /chinese-calendar-vs-nub-theory/: Chinese calendar vs nub theory comparison
+- /chinese-calendar-vs-old-wives-tales/: Chinese calendar vs old wives tales
+- /ramzi-vs-nub-theory/: Ramzi vs nub theory comparison
+
+## Blog
+- /blog/: Blog index with 11 articles on gender prediction methods, accuracy, and tips
+- /blog/gender-predictor-accuracy-research/: Real accuracy data across all methods
+- /blog/gender-predictor-methods-compared/: 11 methods side-by-side comparison
+- /blog/how-accurate-is-chinese-gender-chart/: Chinese gender chart accuracy analysis
+- /blog/old-wives-tales-baby-gender/: Complete guide to 15 wives tales
+- /blog/ramzi-theory-ultrasound-guide/: How to read ultrasound for Ramzi theory
+- /blog/nub-theory-12-weeks/: Nub theory guide at 12 weeks
+- /blog/when-can-you-tell-baby-gender/: Gender prediction timeline 10-20 weeks
+- /blog/skull-theory-gender/: Skull theory for gender prediction
+- /blog/ring-test-gender-prediction/: Ring test complete guide
+- /blog/baking-soda-gender-test/: Baking soda test explained
+- /blog/gender-reveal-ideas/: 25 creative gender reveal ideas

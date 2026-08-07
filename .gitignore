@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Images (generated, not source)
+public/images/
+
+# IDE
+.vscode/
+.qoder/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Audit / temp
+*-audit/
+localhost-*-audit/
+*.log
+_enrich.py
+_gen_landing.py
+boot-*.cmd

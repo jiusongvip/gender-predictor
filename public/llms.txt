@@ -1,8 +1,8 @@
 # Gender Predictor
-> Free baby gender prediction tool combining 8 methods: Chinese calendar, Ramzi theory, nub theory, heart rate, old wives tales, baking soda test, skull theory, and ring test.
+> Free baby gender prediction tool combining 9 methods: Chinese calendar, Ramzi theory, nub theory, heart rate, old wives tales, baking soda test, skull theory, ring test, and gut feeling.
 
 ## Tool
-- /: Main prediction tool with all 8 methods combined, plus baby name finder and countdown timer
+- /: Main prediction tool with all 9 methods combined, plus baby name finder and countdown timer. Works for conceptions in 2026 and 2027 (the Chinese gender chart itself never changes year to year).
 
 ## Methods
 - /chinese-gender-chart/: Chinese gender calendar predictor with full calendar table

@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👶</text></svg>">
-<title>Chinese Gender Predictor — Free Baby Gender Prediction</title>
-<meta name="description" content="Chinese gender predictor using 5 methods: lunar calendar, Ramzi theory, old wives tales, nub theory & heart rate. Free baby gender prediction tool.">
+<title>Chinese Gender Predictor 2026 — Free Baby Gender Prediction</title>
+<meta name="description" content="Chinese gender predictor 2026 using 9 methods: lunar calendar, Ramzi theory, old wives tales, nub theory, heart rate, gut feeling & more. Free baby gender prediction tool.">
 <link rel="canonical" href="https://genderpredictor.tools/">
-<meta property="og:title" content="Chinese Gender Predictor — Free Baby Gender Prediction">
-<meta property="og:description" content="Predict your baby's gender with 5 methods combined. Instant & free.">
+<meta property="og:title" content="Chinese Gender Predictor 2026 — Free Baby Gender Prediction">
+<meta property="og:description" content="Predict your baby's gender with 9 methods combined. Instant & free.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://genderpredictor.tools/">
 <meta name="twitter:card" content="summary_large_image">
@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="https://genderpredictor.tools/og-image.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&optional" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,7 +40,9 @@
     { "@type": "Question", "name": "Is the Ramzi theory scientifically proven?", "acceptedAnswer": { "@type": "Answer", "text": "Dr. Ramzi published a 2011 study suggesting a link between placenta location and fetal gender. The study has not been peer-reviewed and most medical professionals consider it unproven." } },
     { "@type": "Question", "name": "Can heart rate really predict gender?", "acceptedAnswer": { "@type": "Answer", "text": "No. Multiple large studies have found no significant difference between male and female fetal heart rates. The tale that above 140 bpm means girl is a myth with no scientific basis." } },
     { "@type": "Question", "name": "What is the nub theory?", "acceptedAnswer": { "@type": "Answer", "text": "The nub theory looks at the angle of the genital tubercle on an ultrasound around 11 to 14 weeks. An angle over 30 degrees is said to suggest a boy. It requires a clear profile view and is not definitive." } },
-    { "@type": "Question", "name": "Which method is the most accurate?", "acceptedAnswer": { "@type": "Answer", "text": "NIPT blood testing at 10 weeks is over 99 percent accurate. The 20-week anatomy scan is around 95 to 99 percent accurate. All methods on this site are for entertainment." } }
+    { "@type": "Question", "name": "Which method is the most accurate?", "acceptedAnswer": { "@type": "Answer", "text": "NIPT blood testing at 10 weeks is over 99 percent accurate. The 20-week anatomy scan is around 95 to 99 percent accurate. All methods on this site are for entertainment." } },
+    { "@type": "Question", "name": "Does the Chinese gender chart change every year?", "acceptedAnswer": { "@type": "Answer", "text": "No. The chart itself stays the same every year. What changes is how your lunar age and lunar month of conception land on the chart, because the Chinese lunar calendar shifts slightly each year compared to the regular calendar. A 2026 and a 2027 Chinese gender predictor both use the same traditional chart." } },
+    { "@type": "Question", "name": "How is Chinese lunar age calculated?", "acceptedAnswer": { "@type": "Answer", "text": "In the Chinese system a baby is considered one year old at birth because the time in the womb counts. Your lunar age then increases by one at Chinese New Year rather than on your birthday, which is why it is usually one or two years older than your regular age." } }
   ]
 }
 </script>
@@ -52,17 +54,16 @@
     { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://genderpredictor.tools/" }
   ]
 }
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Gender Predictor",
   "url": "https://genderpredictor.tools",
-  "description": "Free baby gender prediction tool combining 8 methods: Chinese calendar, Ramzi theory, nub theory, heart rate, old wives tales, baking soda test, skull theory and ring test.",
+  "description": "Free baby gender prediction tool combining 9 methods: Chinese calendar, Ramzi theory, nub theory, heart rate, old wives tales, baking soda test, skull theory, ring test and gut feeling.",
   "logo": "https://genderpredictor.tools/og-image.svg"
 }
-</script>
-
 </script>
 
 <style>
@@ -478,13 +479,21 @@
   .date-field input{height:48px;padding:0 16px;border:1.5px solid var(--border);border-radius:var(--radius);font-size:.9375rem;font-family:inherit;color:var(--text);background:var(--white);outline:none;transition:border-color .15s;width:100%;}
   .date-field input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(123,107,154,.12);}
   .date-hint{font-size:.6875rem;color:var(--text-subtle);margin-top:-2px;}
+  .conception-check{display:inline-flex;align-items:center;gap:8px;font-size:.8125rem;font-weight:600;color:var(--accent);cursor:pointer;user-select:none;margin-bottom:4px;}
+  .conception-check input{width:16px;height:16px;accent-color:var(--accent);cursor:pointer;flex-shrink:0;}
+  /* Chart Legend */
+  .legend-dot{display:inline-block;width:12px;height:12px;border-radius:3px;flex-shrink:0;}
+  .legend-boy{background:var(--boy);}
+  .legend-girl{background:var(--girl);}
+  .legend-age{background:var(--accent-subtle);border:1px solid var(--accent);}
+  .legend-month{background:var(--base);border:1px solid var(--border);}
 </style>
 </head>
-<body>
+<body data-page="index">
 
 <nav class="nav">
   <div class="nav-inner">
-    <a href="#" class="nav-brand">Gender Predictor</a>
+    <a href="/" class="nav-brand">Gender Predictor</a>
     <ul class="nav-links">
       <li><a href="#methods">Methods</a></li>
       <li><a href="#quiz">Quiz</a></li>
@@ -493,22 +502,28 @@
       <li><a href="#faq">FAQ</a></li>
     </ul>
   </div>
-</nav><main><section class="hero" id="hero">
+</nav><main>
+<div id="spa-home">
+<section class="hero" id="hero">
   <div class="hero-inner">
     <div class="hero-text">
       <div class="hero-badge">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="7"/><path d="M8 3v5l3 2"/></svg>
-        Free &amp; instant
+        Free &amp; instant · 2026
       </div>
       <h1>What will your <span>baby</span> be?</h1>
       <p class="hero-desc" id="hero-desc-predict">
-        Five prediction methods combined into one answer. Chinese calendar, Ramzi theory, old wives' tales, nub theory and heart rate. No signup, just results.
+        Nine prediction methods combined into one answer — from the Chinese calendar to your own gut feeling. No signup, just results.
       </p>
       <p class="hero-desc" id="hero-desc-plan" style="display:none;">
         Planning for a baby? Use the Chinese calendar to find the best months to conceive a boy or girl. Just enter your birth date and desired gender.
       </p>
+      <p class="hero-desc" id="hero-desc-quick" style="display:none;">
+        The classic quick check — just like the traditional chart. Pick your age at conception and the month of conception. No dates needed, instant answer.
+      </p>
       <div class="mode-toggle" id="mode-toggle">
         <button class="mode-toggle-btn active" data-mode="predict" onclick="switchMode('predict')">🔮 Predict Gender</button>
+        <button class="mode-toggle-btn" data-mode="quick" onclick="switchMode('quick')">⚡ Quick</button>
         <button class="mode-toggle-btn" data-mode="plan" onclick="switchMode('plan')">📅 Plan Conception</button>
       </div>
       <form class="hero-form" id="predict-form">
@@ -519,11 +534,15 @@
             <span class="date-hint">Mother's birthday — used to calculate lunar age</span>
           </div>
           <div class="date-field" id="duedate-wrap">
-            <label for="duedate">📅 Due date</label>
+            <label for="duedate" id="duedate-label">📅 Due date</label>
             <input type="date" id="duedate" required placeholder="MM/DD/YYYY">
-            <span class="date-hint">Baby's expected arrival — we estimate conception from this</span>
+            <span class="date-hint" id="duedate-hint">Baby's expected arrival — we estimate conception from this</span>
           </div>
         </div>
+        <label class="conception-check" for="use-conception" id="conception-wrap">
+          <input type="checkbox" id="use-conception" onchange="toggleConceptionField()">
+          <span>I know my conception date</span>
+        </label>
         <div class="plan-fields" id="plan-fields">
           <div class="input-group">
             <label>Desired baby gender</label>
@@ -571,13 +590,68 @@
             <option value="line">Back and forth (boy)</option>
           </select>
         </div>
+        <div class="input-group">
+          <label for="gut-feeling">Gut feeling <span style="font-weight:400;color:var(--text-subtle);">— optional</span></label>
+          <select id="gut-feeling" class="form-select">
+            <option value="">What does your gut say? No overthinking!</option>
+            <option value="boy">It's a boy!</option>
+            <option value="girl">It's a girl!</option>
+          </select>
+          <span class="date-hint">Some studies suggest a mother's gut feeling is right around 70% of the time.</span>
+        </div>
         </div>
         <button type="submit" class="btn btn-primary" id="submit-btn">Predict now</button>
+      </form>
+      <form class="hero-form" id="quick-form" style="display:none;">
+        <div class="input-group">
+          <label for="qp-age">👩 Mom's age at conception <span style="font-weight:400;color:var(--text-subtle);">(lunar age, 18–45)</span></label>
+          <select id="qp-age" class="form-select" required>
+            <option value="">Select your age at conception</option>
+            <option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option><option value="33">33</option><option value="34">34</option><option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option>
+          </select>
+          <span class="date-hint">The chart uses your lunar age — add 1 to your actual age in Chinese tradition.</span>
+        </div>
+        <div class="input-group">
+          <label for="qp-month">📅 Month of conception</label>
+          <select id="qp-month" class="form-select" required>
+            <option value="">Select the month</option>
+            <option value="1">January</option><option value="2">February</option><option value="3">March</option><option value="4">April</option><option value="5">May</option><option value="6">June</option><option value="7">July</option><option value="8">August</option><option value="9">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option>
+          </select>
+          <span class="date-hint">Estimate the month you conceived — the chart is not date-specific.</span>
+        </div>
+        <button type="submit" class="btn btn-primary">Predict with the Chinese calendar</button>
       </form>
     </div>
     <div class="hero-visual">
       <div class="hero-orb">
         <span class="hero-icon" style="top:50%;left:50%;transform:translate(-50%,-50%);">👶</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="at-a-glance" style="padding-top:0;">
+  <div class="section-inner">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;">
+      <div style="padding:20px;border:1.5px solid var(--border);border-radius:var(--radius);background:var(--white);">
+        <div style="font-size:1.5rem;margin-bottom:8px;">🗓️</div>
+        <p style="font-family:'Outfit',sans-serif;font-size:.875rem;font-weight:600;color:var(--text);margin-bottom:4px;">Lunar age × conception month</p>
+        <p style="font-size:.8125rem;color:var(--text-muted);line-height:1.5;">Your birth date and due date (or conception date) are converted to the Chinese lunar calendar automatically.</p>
+      </div>
+      <div style="padding:20px;border:1.5px solid var(--border);border-radius:var(--radius);background:var(--white);">
+        <div style="font-size:1.5rem;margin-bottom:8px;">📜</div>
+        <p style="font-family:'Outfit',sans-serif;font-size:.875rem;font-weight:600;color:var(--text);margin-bottom:4px;">A 700-year-old folk tradition</p>
+        <p style="font-size:.8125rem;color:var(--text-muted);line-height:1.5;">The chart is not scientifically proven — it is about 50% accurate, the same as a coin flip.</p>
+      </div>
+      <div style="padding:20px;border:1.5px solid var(--border);border-radius:var(--radius);background:var(--white);">
+        <div style="font-size:1.5rem;margin-bottom:8px;">🎯</div>
+        <p style="font-family:'Outfit',sans-serif;font-size:.875rem;font-weight:600;color:var(--text);margin-bottom:4px;">9 methods, one vote</p>
+        <p style="font-size:.8125rem;color:var(--text-muted);line-height:1.5;">Chinese calendar, Ramzi, nub, heart rate, old wives' tales quiz, baking soda, skull, ring test and your gut feeling.</p>
+      </div>
+      <div style="padding:20px;border:1.5px solid var(--border);border-radius:var(--radius);background:var(--white);">
+        <div style="font-size:1.5rem;margin-bottom:8px;">✅</div>
+        <p style="font-family:'Outfit',sans-serif;font-size:.875rem;font-weight:600;color:var(--text);margin-bottom:4px;">Only medical answers count</p>
+        <p style="font-size:.8125rem;color:var(--text-muted);line-height:1.5;">For certainty, NIPT from 10 weeks (99%+) or the 18–20 week scan. Everything here is for entertainment.</p>
       </div>
     </div>
   </div>
@@ -603,7 +677,7 @@
       <div style="text-align:center;padding:28px 20px;border:1.5px solid var(--border);border-radius:var(--radius);">
         <div style="width:48px;height:48px;border-radius:50%;background:var(--accent-subtle);color:var(--accent);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-family:'Outfit',sans-serif;font-size:1.25rem;font-weight:700;">3</div>
         <h3 style="font-family:'Outfit',sans-serif;font-size:1rem;font-weight:600;margin-bottom:8px;">Get Your Result</h3>
-        <p style="font-size:.8125rem;color:var(--text-muted);">Click predict. See which gender all 8 methods vote for, with a confidence score and breakdown of each method.</p>
+        <p style="font-size:.8125rem;color:var(--text-muted);">Click predict. See which gender all 9 methods vote for, with a confidence score and breakdown of each method.</p>
       </div>
     </div>
   </div>
@@ -634,6 +708,24 @@
       <button class="btn btn-secondary btn-sm" id="find-on-chart-btn">Find on chart</button>
     </div>
     <div class="calendar-wrap" id="calendar-wrap"></div>
+    <div class="chart-guide" style="margin-top:32px;padding:28px;background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);">
+      <h3 style="font-family:'Outfit',sans-serif;font-size:1.0625rem;font-weight:600;color:var(--text);margin-bottom:12px;">How to read the Chinese gender chart</h3>
+      <p style="font-size:.875rem;color:var(--text-muted);line-height:1.7;margin-bottom:14px;">Find your <strong style="color:var(--text);">lunar age at conception</strong> in the left column (Y axis), then move across to the <strong style="color:var(--text);">month of conception</strong> (X axis). The cell where they meet is the prediction.</p>
+      <div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:16px;">
+        <span style="display:inline-flex;align-items:center;gap:6px;font-size:.8125rem;color:var(--text-muted);"><span class="legend-dot legend-boy"></span> Boy</span>
+        <span style="display:inline-flex;align-items:center;gap:6px;font-size:.8125rem;color:var(--text-muted);"><span class="legend-dot legend-girl"></span> Girl</span>
+        <span style="display:inline-flex;align-items:center;gap:6px;font-size:.8125rem;color:var(--text-muted);"><span class="legend-dot legend-age"></span> Lunar age (Y axis)</span>
+        <span style="display:inline-flex;align-items:center;gap:6px;font-size:.8125rem;color:var(--text-muted);"><span class="legend-dot legend-month"></span> Month of conception (X axis)</span>
+      </div>
+      <div style="background:var(--base);border-left:3px solid var(--accent);padding:14px 18px;border-radius:0 var(--radius-sm) var(--radius-sm) 0;">
+        <p style="font-family:'Outfit',sans-serif;font-weight:600;font-size:.875rem;color:var(--accent);margin-bottom:4px;">The story behind the chart</p>
+        <p style="font-size:.8125rem;color:var(--text-muted);line-height:1.7;">Legend says the original chart was kept inside the royal palace during the Qing dynasty (1644–1911) and only left it as the dynasty fell, eventually reaching the Beijing Institute of Science. It has loose connections to the I Ching, yin and yang, and the five elements. It relies on two simple principles: the mother's age at conception and the month of conception. No single official version exists — different sites circulate slightly different grids, so if two charts disagree, that's why. One more reason to treat it as a fun tradition rather than a medical test.</p>
+      </div>
+      <div style="background:var(--sage-light);border-radius:var(--radius-sm);padding:14px 18px;margin-top:12px;">
+        <p style="font-family:'Outfit',sans-serif;font-weight:600;font-size:.875rem;color:var(--sage);margin-bottom:4px;">How lunar age works</p>
+        <p style="font-size:.8125rem;color:var(--text-muted);line-height:1.7;">In the Chinese system a baby is considered 1 year old at birth, because the time in the womb counts. Everyone then turns a year older at Chinese New Year rather than on their birthday — so lunar age is usually 1–2 years more than regular age. Example: if your age at conception is 28, your lunar age is 29. The chart itself is the same every year; only how your Gregorian dates convert to lunar months shifts because Lunar New Year falls on a different date each year — in 2026 it is February 17. Our tool adjusts for this automatically.</p>
+      </div>
+    </div>
   </div>
     <div style="margin-top:28px;padding:20px 24px;background:var(--accent-subtle);border-radius:var(--radius);">
       <p style="font-family:'Outfit',system-ui,sans-serif;font-weight:600;font-size:1rem;color:var(--accent);margin-bottom:6px;">How accurate is the Chinese gender chart?</p>
@@ -645,7 +737,7 @@
 <section class="section methods" id="methods">
   <div class="section-inner">
     
-    <h2 class="section-heading">Five methods, one answer</h2>
+    <h2 class="section-heading">Nine methods, one answer</h2>
     <p class="section-sub">Each method contributes to the combined prediction. Click any card to explore the science (and myth) behind it.</p>
     <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;">
       <a href="blog/gender-predictor-methods-compared/" class="btn btn-ghost btn-sm">Which method is most accurate?</a>
@@ -695,7 +787,7 @@
   <div class="section-inner">
     <div class="section-label">Old wives' tales</div>
     <h2 class="section-heading">The classic gender quiz</h2>
-    <p class="section-sub">15 old wives' tales, one answer. These have been passed down for generations. How many point the same way?</p>
+    <p class="section-sub">16 old wives' tales (plus your gut feeling), one answer. These have been passed down for generations. How many point the same way?</p>
     <div class="quiz-container" id="quiz-container"></div>
   </div>
 </section>
@@ -717,6 +809,8 @@
           <li style="display:flex;align-items:center;gap:8px;font-size:.875rem;color:var(--text-muted);"><span style="font-size:1rem;">💙</span> Cold feet</li>
           <li style="display:flex;align-items:center;gap:8px;font-size:.875rem;color:var(--text-muted);"><span style="font-size:1rem;">💙</span> Carrying low</li>
           <li style="display:flex;align-items:center;gap:8px;font-size:.875rem;color:var(--text-muted);"><span style="font-size:1rem;">💙</span> Heart rate below 140 bpm</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:.875rem;color:var(--text-muted);"><span style="font-size:1rem;">💙</span> Body hair grows faster</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:.875rem;color:var(--text-muted);"><span style="font-size:1rem;">💙</span> Skin is drier than usual</li>
         </ul>
       </div>
       <div style="padding:24px;border:1.5px solid var(--border);border-radius:var(--radius);background:var(--base);">
@@ -729,10 +823,39 @@
           <li style="display:flex;align-items:center;gap:8px;font-size:.875rem;color:var(--text-muted);"><span style="font-size:1rem;">💗</span> Carrying high</li>
           <li style="display:flex;align-items:center;gap:8px;font-size:.875rem;color:var(--text-muted);"><span style="font-size:1rem;">💗</span> Heart rate above 140 bpm</li>
           <li style="display:flex;align-items:center;gap:8px;font-size:.875rem;color:var(--text-muted);"><span style="font-size:1rem;">💗</span> Dull, lifeless hair</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:.875rem;color:var(--text-muted);"><span style="font-size:1rem;">💗</span> Oily skin and pimples</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:.875rem;color:var(--text-muted);"><span style="font-size:1rem;">💗</span> Weight gain all over, not just the belly</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:.875rem;color:var(--text-muted);"><span style="font-size:1rem;">💗</span> Falling asleep on your right side</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:.875rem;color:var(--text-muted);"><span style="font-size:1rem;">💗</span> Feet don't grow during pregnancy</li>
         </ul>
       </div>
     </div>
     <p style="margin-top:24px;font-size:.8125rem;color:var(--text-subtle);text-align:center;">All symptom-based predictions are for entertainment. Only medical tests can determine gender accurately.</p>
+  </div>
+</section>
+
+<section class="section" id="science">
+  <div class="section-inner">
+    <div class="section-label">The Science</div>
+    <h2 class="section-heading">How is a baby's gender actually determined?</h2>
+    <p class="section-sub">Fun predictors aside, this is what biology really says about boy or girl.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:40px;">
+      <div style="padding:24px;border:1.5px solid var(--border);border-radius:var(--radius);background:var(--white);">
+        <div style="font-size:2rem;margin-bottom:12px;">🧬</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:1rem;font-weight:600;margin-bottom:8px;color:var(--text);">Set at the moment of conception</h3>
+        <p style="font-size:.875rem;color:var(--text-muted);line-height:1.7;">Every egg carries an X chromosome. Sperm carry either an X or a Y chromosome. If an X sperm wins the race, the baby is a girl (XX). If a Y sperm wins, the baby is a boy (XY). It all happens in the very first moments after fertilization.</p>
+      </div>
+      <div style="padding:24px;border:1.5px solid var(--border);border-radius:var(--radius);background:var(--white);">
+        <div style="font-size:2rem;margin-bottom:12px;">🏁</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:1rem;font-weight:600;margin-bottom:8px;color:var(--text);">The sperm speed myth</h3>
+        <p style="font-size:.875rem;color:var(--text-muted);line-height:1.7;">You may have heard that Y sperm (boy) swim faster but die sooner, and that X sperm (girl) live longer. While these are popular theories, no reliable study has shown you can meaningfully tip the odds — timing, diet, or positions included.</p>
+      </div>
+      <div style="padding:24px;border:1.5px solid var(--border);border-radius:var(--radius);background:var(--white);">
+        <div style="font-size:2rem;margin-bottom:12px;">✅</div>
+        <h3 style="font-family:'Outfit',sans-serif;font-size:1rem;font-weight:600;margin-bottom:8px;color:var(--text);">Only two reliable answers</h3>
+        <p style="font-size:.875rem;color:var(--text-muted);line-height:1.7;">NIPT blood tests from around 10 weeks are 99%+ accurate. The anatomy ultrasound at 18–20 weeks is 95–99% accurate. Everything else — including every method on this page — is entertainment.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -807,12 +930,16 @@
       <span style="display:inline-flex;align-items:center;gap:6px;font-size:.875rem;color:var(--text-muted);">Want more ideas? <a href="blog/gender-reveal-ideas/" style="color:var(--accent);font-weight:600;">Read our complete guide</a></span>
     </p>
   </div>
-</section></main>
+</section>
+</div>
+<div id="spa-view" hidden></div>
+</main>
 <footer class="footer">
   <div class="footer-inner">
-    <p class="footer-text">Gender Predictor is for entertainment purposes. Always consult medical professionals for accurate information.</p>
+    <p class="footer-text">Gender Predictor is for entertainment purposes and is not meant to support gender selection or sex determination. Every child is precious — always consult medical professionals for accurate information.</p>
     <ul class="footer-links">
       <li><a href="blog/">Blog</a></li>
+      <li><a href="/about/">About</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="/privacy/">Privacy</a></li>
     </ul>
@@ -908,6 +1035,7 @@ function heartRatePredict(bpm) {
 function bakingSodaPredict(choice) { if (choice === "fizz") return "B"; if (choice === "nofizz") return "G"; return null; }
 function skullTheoryPredict(choice) { if (choice === "square") return "B"; if (choice === "round") return "G"; return null; }
 function ringTestPredict(choice) { if (choice === "circle") return "G"; if (choice === "line") return "B"; return null; }
+function gutFeelingPredict(choice) { if (choice === "boy") return "B"; if (choice === "girl") return "G"; return null; }
 
 // ── Quiz ──
 var QUIZ_QUESTIONS = [
@@ -925,7 +1053,8 @@ var QUIZ_QUESTIONS = [
   { q:"Do you get frequent headaches?", opts:["Yes, quite often","No, rarely"], scores:[[0,1],[1,0]] },
   { q:"Which breast is larger?", opts:["Left is bigger","Right is bigger"], scores:[[1,0],[0,1]] },
   { q:"What color is your urine?", opts:["Bright yellow","Dull or pale"], scores:[[0,1],[1,0]] },
-  { q:"Your age at conception plus the month number is...", opts:["An even number","An odd number"], scores:[[1,0],[0,1]] }
+  { q:"Your age at conception plus the month number is...", opts:["An even number","An odd number"], scores:[[1,0],[0,1]] },
+  { q:"What does your gut feeling say? (no overthinking!)", opts:["It's a boy!","It's a girl!"], scores:[[0,1],[1,0]] }
 ];
 
 var FAQ_ITEMS = [
@@ -942,7 +1071,9 @@ var FAQ_ITEMS = [
   { q:"What is skull theory for gender prediction?", a:"Skull theory looks at skull shape on a 12-week ultrasound. A square jaw and pronounced brow ridge is said to suggest a boy, while a round, smooth skull suggests a girl. It has no scientific validation." },
   { q:"How does the ring test predict gender?", a:"Suspend a ring on a string over the pregnant belly. Circular swinging motion is said to mean girl, back-and-forth movement means boy. This is caused by the ideomotor effect, not the baby's gender. Accuracy is about 50%." },
   { q:"When should I have a gender reveal party?", a:"Most people wait until after the 20-week anatomy scan when gender is confirmed with 95-99% accuracy. Some choose to reveal after NIPT results at 10-13 weeks. Plan the party whenever feels right for you." },
-  { q:"Are gender prediction methods safe during pregnancy?", a:"Non-invasive methods like Chinese calendar, old wives' tales quizzes, and ring tests are completely safe. Only medical tests like ultrasound and NIPT should be relied upon for accurate gender determination." }
+  { q:"Are gender prediction methods safe during pregnancy?", a:"Non-invasive methods like Chinese calendar, old wives' tales quizzes, and ring tests are completely safe. Only medical tests like ultrasound and NIPT should be relied upon for accurate gender determination." },
+  { q:"Does the Chinese gender chart change every year?", a:"No. The chart itself stays the same every year. What changes is how your lunar age and lunar month of conception land on the chart, because the Chinese lunar calendar shifts slightly each year compared to the regular calendar. A 2026 and a 2027 Chinese gender predictor both use the same traditional chart — our tool works for conceptions in any year." },
+  { q:"How is Chinese lunar age calculated?", a:"In the Chinese system a baby is considered one year old at birth, because the time in the womb counts. Your lunar age then increases by one at Chinese New Year rather than on your birthday. That is why your lunar age is usually one or two years older than your regular age. Entering your birth date and due date lets the tool calculate it automatically." }
 ];
 
 // ── Render Methods ──
@@ -956,7 +1087,8 @@ function renderMethods(results) {
   ,
     { name:"Baking Soda Test", desc:"At-home fizzy science experiment", icon:"🧪", result:results.bakingSoda, link:"blog/baking-soda-gender-test/" },
     { name:"Skull Theory", desc:"Skull shape at 12-week ultrasound", icon:"💀", result:results.skull, link:"blog/skull-theory-gender/" },
-    { name:"Ring Test", desc:"Wedding ring pendulum swing", icon:"💍", result:results.ring, link:"blog/ring-test-gender-prediction/" }
+    { name:"Ring Test", desc:"Wedding ring pendulum swing", icon:"💍", result:results.ring, link:"blog/ring-test-gender-prediction/" },
+    { name:"Gut Feeling", desc:"Your instinct, ~70% in studies", icon:"🤗", result:results.gut, link:"blog/old-wives-tales-baby-gender/" }
   ]; var html='';
   methods.forEach(function(m){
     var label=m.result==='B'?'Boy':m.result==='G'?'Girl':'Unknown';
@@ -1125,7 +1257,7 @@ function generateShareCard(gender,confidence,girlVotes,boyVotes){
   ctx.fillStyle='#7b6b9a';ctx.font='600 28px Outfit,system-ui,sans-serif';
   ctx.fillText(confidence+'% confidence',w/2,410);
   ctx.fillStyle='#6b6672';ctx.font='24px Outfit,system-ui,sans-serif';
-  ctx.fillText('5 methods combined: '+girlVotes+' for girl, '+boyVotes+' for boy',w/2,460);
+  ctx.fillText('9 methods combined: '+girlVotes+' for girl, '+boyVotes+' for boy',w/2,460);
   ctx.fillStyle='#9893a0';ctx.font='18px system-ui,sans-serif';
   ctx.fillText('genderpredictor.tools',w/2,560);
   return canvas.toDataURL('image/png');
@@ -1146,15 +1278,24 @@ function submitFeedback(answer,btn){
 function doPrediction(e){
   e.preventDefault();
   var birthdate=document.getElementById('birthdate').value;
-  var duedate=document.getElementById('duedate').value;
+  var dateRaw=document.getElementById('duedate').value;
   var heartRateInput=parseInt(document.getElementById('heartrate').value);
-  if(!birthdate||!duedate)return;
+  if(!birthdate||!dateRaw)return;
 
   incrementCounter();
 
   var birth=new Date(birthdate);
-  var due=new Date(duedate);
-  var conception=new Date(due.getTime()-266*24*60*60*1000);
+  var useConception=document.getElementById('use-conception').checked;
+  var due,conception;
+  if(useConception){
+    conception=new Date(dateRaw);
+    if(isNaN(conception.getTime()))return;
+    due=new Date(conception.getTime()+266*24*60*60*1000);
+  }else{
+    due=new Date(dateRaw);
+    if(isNaN(due.getTime()))return;
+    conception=new Date(due.getTime()-266*24*60*60*1000);
+  }
   var lunarAge=getLunarAge(birth,conception);
   var lunarMonth=getLunarMonth(conception);
   var chinese=chineseCalendarPredict(lunarAge,lunarMonth);
@@ -1165,10 +1306,11 @@ function doPrediction(e){
   var bakingSoda=bakingSodaPredict(document.getElementById('baking-soda').value);
   var skull=skullTheoryPredict(document.getElementById('skull-theory').value);
   var ring=ringTestPredict(document.getElementById('ring-test').value);
-  var results={chinese:chinese,ramzi:ramzi,nub:nub,heartRate:heartRate,quiz:quiz,bakingSoda:bakingSoda,skull:skull,ring:ring};
+  var gut=gutFeelingPredict(document.getElementById('gut-feeling').value);
+  var results={chinese:chinese,ramzi:ramzi,nub:nub,heartRate:heartRate,quiz:quiz,bakingSoda:bakingSoda,skull:skull,ring:ring,gut:gut};
 
   var boyVotes=0,girlVotes=0;
-  [chinese,ramzi,nub,heartRate,quiz,bakingSoda,skull,ring].forEach(function(r){if(r==='B')boyVotes++;else if(r==='G')girlVotes++;});
+  [chinese,ramzi,nub,heartRate,quiz,bakingSoda,skull,ring,gut].forEach(function(r){if(r==='B')boyVotes++;else if(r==='G')girlVotes++;});
   var finalResult=girlVotes>boyVotes?'Girl':boyVotes>girlVotes?'Boy':(Math.random()>0.5?'Girl':'Boy');
   var totalVotes=boyVotes+girlVotes;
   var agreeCount=Math.max(boyVotes,girlVotes);
@@ -1192,7 +1334,8 @@ function doPrediction(e){
       {name:"Old Wives' Tales",result:quiz},
       {name:"Baking Soda Test",result:bakingSoda},
       {name:"Skull Theory",result:skull},
-      {name:"Ring Test",result:ring}
+      {name:"Ring Test",result:ring},
+      {name:"Gut Feeling",result:gut}
     ];
 
     // Agreement dots strip
@@ -1217,7 +1360,7 @@ function doPrediction(e){
       '<div class="result-icon">'+emoji+'</div>'+
       '<div class="result-gender '+cls+'">It\'s a '+finalResult+'!</div>'+
       '<div class="agreement-banner">'+
-        '<div class="agree-count">'+agreeEmoji+' '+agreeCount+'/8 methods agree</div>'+
+        '<div class="agree-count">'+agreeEmoji+' '+agreeCount+'/9 methods agree</div>'+
         '<div class="agree-text">'+girlVotes+' say Girl &middot; '+boyVotes+' say Boy &middot; '+confidence+'% confidence</div>'+
         dotsHTML+
       '</div>'+
@@ -1234,7 +1377,7 @@ function doPrediction(e){
     window._shareGirlVotes=girlVotes;
     window._shareBoyVotes=boyVotes;
     window._agreeCount=agreeCount;
-    savePrediction(finalResult,confidence,girlVotes,boyVotes,birthdate,duedate);
+    savePrediction(finalResult,confidence,girlVotes,boyVotes,birthdate,due.toISOString().split('T')[0]);
   },1500);
   renderMethods(results);
 }
@@ -1314,28 +1457,61 @@ function switchMode(mode){
   var dueInput=document.getElementById('duedate');
   var heroPredict=document.getElementById('hero-desc-predict');
   var heroPlan=document.getElementById('hero-desc-plan');
+  var heroQuick=document.getElementById('hero-desc-quick');
   var submitBtn=document.getElementById('submit-btn');
+  var predictForm=document.getElementById('predict-form');
+  var quickForm=document.getElementById('quick-form');
+  var conceptionWrap=document.getElementById('conception-wrap');
   var optionalFields=document.querySelectorAll('#optional-fields .input-group');
   if(mode==='plan'){
     planFields.classList.add('visible');
     dueWrap.style.display='none';
     dueInput.removeAttribute('required');
     dueInput.value='';
+    if(conceptionWrap)conceptionWrap.style.display='none';
     heroPredict.style.display='none';
     heroPlan.style.display='';
+    heroQuick.style.display='none';
     submitBtn.textContent='Find best months';
     optionalFields.forEach(function(f){f.style.display='none';});
     document.getElementById('optional-toggle').style.display='none';
     document.getElementById('optional-fields').classList.remove('visible');
+    predictForm.style.display='';
+    quickForm.style.display='none';
+  }else if(mode==='quick'){
+    planFields.classList.remove('visible');
+    heroPredict.style.display='none';
+    heroPlan.style.display='none';
+    heroQuick.style.display='';
+    predictForm.style.display='none';
+    quickForm.style.display='';
   }else{
     planFields.classList.remove('visible');
     dueWrap.style.display='';
     dueInput.setAttribute('required','');
+    if(conceptionWrap)conceptionWrap.style.display='';
     heroPredict.style.display='';
     heroPlan.style.display='none';
+    heroQuick.style.display='none';
     submitBtn.textContent='Predict now';
     optionalFields.forEach(function(f){f.style.display='';});
     document.getElementById('optional-toggle').style.display='';
+    predictForm.style.display='';
+    quickForm.style.display='none';
+  }
+}
+
+// ── Conception Date Toggle ──
+function toggleConceptionField(){
+  var cb=document.getElementById('use-conception');
+  var label=document.getElementById('duedate-label');
+  var hint=document.getElementById('duedate-hint');
+  if(cb&&cb.checked){
+    label.innerHTML='📅 Conception date';
+    if(hint)hint.textContent='The date you conceived — we estimate your due date from this';
+  }else if(label){
+    label.innerHTML='📅 Due date';
+    if(hint)hint.textContent="Baby's expected arrival — we estimate conception from this";
   }
 }
 
@@ -1408,9 +1584,48 @@ function doPlanning(e){
       '<div class="plan-months">'+monthsHTML+'</div>'+
       '<p style="font-size:.75rem;color:var(--text-subtle);margin-top:12px;">These '+bestMonths.length+' months show the highest probability for a '+desiredGender.toLowerCase()+' according to the Chinese chart. Scroll down to see the full calendar with these months highlighted.</p>'+
       '<div class="result-actions" style="margin-top:20px;"><button class="btn btn-primary btn-sm" onclick="document.getElementById(\'calendar\').scrollIntoView({behavior:\'smooth\'});">View full chart ↓</button><button class="btn btn-ghost btn-sm" onclick="resetPrediction()">Try again</button></div>'+
-      '<p style="margin-top:16px;font-size:.75rem;color:var(--text-subtle);">For entertainment only. The Chinese gender chart is not scientifically proven for gender selection. Consult your doctor for medical advice.</p>'+
+      '<p style="margin-top:16px;font-size:.75rem;color:var(--text-subtle);">For entertainment only. The Chinese gender chart is not scientifically proven for gender selection. We do not support gender selection of any kind. Consult your doctor for medical advice.</p>'+
       '</div>';
   },800);
+}
+
+// ── Quick Mode Prediction (Chinese calendar only, Huggies-style) ──
+function doQuickPredict(e){
+  e.preventDefault();
+  var age=parseInt(document.getElementById('qp-age').value);
+  var month=parseInt(document.getElementById('qp-month').value);
+  if(!age||age<18||age>45||!month){alert('Please select your age at conception and the month of conception.');return;}
+  incrementCounter();
+  var pred=chineseCalendarPredict(age,month);
+  var cls=pred==='B'?'boy':pred==='G'?'girl':'';
+  var label=pred==='B'?'Boy':pred==='G'?'Girl':'Unknown';
+  var emoji=pred==='B'?'💙':pred==='G'?'🌸':'🤷';
+  var monthNames=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var inner=document.getElementById('result-inner');
+  inner.innerHTML='<div class="spinner"></div><p style="color:var(--text-muted);margin-top:16px;font-size:.875rem;">Consulting the ancient chart...</p>';
+  document.getElementById('result-section').style.display='block';
+  document.getElementById('result-card').classList.add('visible');
+  document.getElementById('result-section').scrollIntoView({behavior:'smooth',block:'center'});
+  setTimeout(function(){
+    window._lastPrediction=label;
+    window._quickAge=age;window._quickMonth=month;
+    inner.innerHTML=
+      '<div class="result-icon">'+emoji+'</div>'+
+      '<div class="result-gender '+cls+'">'+label+'</div>'+
+      '<div class="result-bar"><div class="result-bar-fill '+cls+'" style="width:100%;"></div></div>'+
+      '<p style="margin-top:16px;color:var(--text-muted);font-size:.875rem;">According to the Chinese gender calendar: maternal (lunar) age <strong>'+age+'</strong>, conceived in <strong>'+monthNames[month-1]+'</strong>.</p>'+
+      '<div class="result-actions"><button class="btn btn-secondary btn-sm" onclick="goToChart('+age+','+month+')">See it on the chart ↓</button><button class="btn btn-ghost btn-sm" onclick="resetPrediction()">Try again</button></div>'+
+      '<p style="margin-top:16px;font-size:.75rem;color:var(--text-subtle);">The Chinese calendar has about a 50% real accuracy rate — the same as guessing. For entertainment only.</p>'+
+      renderRelatedArticles();
+  },900);
+}
+
+function goToChart(age,month){
+  var input=document.getElementById('lunar-age');
+  if(input)input.value=age;
+  highlightCalendar(true);
+  var cell=document.querySelector('.calendar-table td[data-age="'+age+'"][data-month="'+month+'"]');
+  if(cell)cell.classList.add('highlight');
 }
 
 // ── Counter ──
@@ -1440,8 +1655,11 @@ function copyShareLink(){
   }
 }
 document.getElementById('predict-form').addEventListener('submit',function(e){
-  if(window._currentMode==='plan'){doPlanning(e);}else{doPrediction(e);}
+  if(window._currentMode==='plan'){doPlanning(e);}
+  else if(window._currentMode==='quick'){e.preventDefault();}
+  else{doPrediction(e);}
 });
+document.getElementById('quick-form').addEventListener('submit',doQuickPredict);
 updateCounterDisplay();
 renderHistory();
 // Auto-load prediction from URL params
@@ -1451,10 +1669,15 @@ renderHistory();
   if (b && d) {
     document.getElementById('birthdate').value = b;
     document.getElementById('duedate').value = d;
+    if (params.get('c') === '1') {
+      document.getElementById('use-conception').checked = true;
+      toggleConceptionField();
+    }
     var hr = params.get('hr'); if (hr) document.getElementById('heartrate').value = hr;
     var bs = params.get('bs'); if (bs) document.getElementById('baking-soda').value = bs;
     var sk = params.get('sk'); if (sk) document.getElementById('skull-theory').value = sk;
     var rt = params.get('rt'); if (rt) document.getElementById('ring-test').value = rt;
+    var gf = params.get('gf'); if (gf) document.getElementById('gut-feeling').value = gf;
     document.getElementById('predict-form').requestSubmit();
   }
 })();
@@ -1469,5 +1692,6 @@ renderQuiz();
 
 </script>
 <button class="back-to-top" id="back-to-top" title="Back to top">↑</button>
+<script src="/router.js"></script>
 </body>
 </html>

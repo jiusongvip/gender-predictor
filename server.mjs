@@ -5,6 +5,7 @@ import { join, extname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { Readable } from "node:stream";
 import { extractMain, extractHead, enhancePage } from "./extract-fragments.mjs";
+import { buildMergedIndex } from "./merge.mjs";
 import { ROUTES } from "./routes.mjs";
 
 const CACHE_CONTROL_HTML = "no-store, no-cache, must-revalidate, max-age=0";
@@ -88,7 +89,7 @@ async function serveEnhancedPage(req, res, id) {
   const html = await readPage(id);
   if (!html) return false;
   if (id === "index") {
-    sendRaw(res, html);
+    sendRaw(res, (await buildMergedIndex()).html);
     return true;
   }
   sendRaw(res, enhancePage(html, id));
@@ -144,7 +145,7 @@ const server = createServer(async (req, res) => {
   if (urlPath === "/") urlPath = "/index.html";
   const pathId = (urlPath.split("?")[0].replace(/^\/+|\/+$/g, "").replace(/\.html$/, "")) || "index";
   // map enhanced page for any known route
-  if (urlPath === "/index.html") { sendRaw(res, await readPage("index")); return; }
+  if (urlPath === "/index.html") { sendRaw(res, (await buildMergedIndex()).html); return; }
   if (ROUTES[pathId]) {
     if (await serveEnhancedPage(req, res, pathId)) return;
   }

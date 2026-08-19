@@ -2,20 +2,23 @@ import { cp, rm, mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { extractMain, extractHead, enhancePage } from "./extract-fragments.mjs";
-import { ROUTES, idToPath } from "./routes.mjs";
+import { buildMergedIndex } from "./merge.mjs";
+import { ROUTES } from "./routes.mjs";
 
 const ROOT = fileURLToPath(new URL(".", import.meta.url));
 const DIST = join(ROOT, "dist");
 const PUBLIC = join(ROOT, "public");
 const SRC = join(ROOT, "src", "pages");
 
-console.log("Building gender-predictor (SPA)...");
+console.log("Building gender-predictor (single-page merge)...");
 
 await rm(DIST, { recursive: true, force: true });
 await mkdir(DIST, { recursive: true });
 
-// index.html — SPA shell (keeps all home content + core tool script)
-await cp(join(SRC, "index.html"), join(DIST, "index.html"));
+// index.html — ALL content merged into one page (tools, methods, comparisons,
+// blog, about, privacy). Sections anchored as #sec-<id>; nav scrolls to them.
+const merged = await buildMergedIndex();
+await writeFile(join(DIST, "index.html"), merged.html);
 
 // Full pages stay in dist -> SEO deep links + no-JS still work.
 // Each complete page gets data-page + router.js so deep-link entry also SPAs.
@@ -38,6 +41,11 @@ await cp(join(PUBLIC, "_headers"), join(DIST, "_headers"));
 await cp(join(PUBLIC, "_redirects"), join(DIST, "_redirects"));
 await cp(join(PUBLIC, "og-image.svg"), join(DIST, "og-image.svg"));
 
+// Images (placeholders; generated assets live under public/images)
+try {
+  await cp(join(PUBLIC, "images"), join(DIST, "images"), { recursive: true });
+} catch (e) { /* images dir optional */ }
+
 // Asyncronously produce lazy-loaded fragments + meta
 const FRAG = join(DIST, "_assets", "frag");
 const ASSETS = join(DIST, "_assets");
@@ -59,7 +67,7 @@ await writeFile(join(ASSETS, "meta.json"), JSON.stringify(meta));
 // sitemap
 await cp(join(ROOT, "sitemap.xml"), join(DIST, "sitemap.xml"));
 
-console.log("  SPA shell: index.html");
+console.log("  Single-page index: " + merged.sectionCount + " merged sections");
 console.log("  Full pages: " + (Object.keys(ROUTES).length - 1));
 console.log("  Fragments:  " + (Object.keys(ROUTES).length - 1));
 console.log("  Static assets + sitemap + router.js");

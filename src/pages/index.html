@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👶</text></svg>">
 <title>Chinese Gender Predictor 2026 — Free Baby Gender Prediction</title>
-<meta name="description" content="Chinese gender predictor 2026 using 9 methods: lunar calendar, Ramzi theory, old wives tales, nub theory, heart rate, gut feeling & more. Free baby gender prediction tool.">
+<meta name="description" content="Chinese gender predictor 2026 with 9 methods: lunar calendar, Ramzi theory, nub theory, old wives tales, heart rate & more. Free instant baby gender prediction.">
 <link rel="canonical" href="https://genderpredictor.tools/">
 <meta property="og:title" content="Chinese Gender Predictor 2026 — Free Baby Gender Prediction">
 <meta property="og:description" content="Predict your baby's gender with 9 methods combined. Instant & free.">
@@ -19,17 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Chinese Gender Predictor",
-  "description": "Free baby gender prediction tool combining Chinese calendar, Ramzi theory, old wives' tales, nub theory, and heart rate methods.",
-  "applicationCategory": "HealthApplication",
-  "operatingSystem": "Any",
-  "offers": { "@type": "Offer", "price": "0" }
-}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Chinese Gender Predictor","description":"Free baby gender prediction tool combining Chinese calendar, Ramzi theory, old wives' tales, nub theory, and heart rate methods.","applicationCategory":"HealthApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0"},"url":"https://genderpredictor.tools/"}</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -116,6 +106,15 @@
   .nav-links { display: flex; gap: 24px; list-style: none; }
   .nav-links a { color: var(--text-muted); text-decoration: none; font-size: .875rem; font-weight: 500; transition: color .15s; }
   .nav-links a:hover { color: var(--accent); }
+  .nav-group { position: relative; }
+  .nav-group-btn { background: none; border: 0; padding: 6px 2px; font-family: inherit; font-size: .875rem; font-weight: 500; color: var(--text-muted); cursor: pointer; transition: color .15s; display: inline-flex; align-items: center; gap: 4px; }
+  .nav-group-btn:hover { color: var(--accent); }
+  .nav-caret { font-size: .625rem; }
+  .nav-dropdown { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin: 10px 0 0; padding: 8px; min-width: 220px; background: var(--white); border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 12px 32px rgba(45,41,51,.12); list-style: none; display: none; z-index: 200; }
+  .nav-dropdown::before { content: ""; position: absolute; top: -10px; left: 0; right: 0; height: 10px; }
+  .nav-dropdown li a { display: block; padding: 8px 12px; border-radius: 8px; font-size: .8125rem; }
+  .nav-dropdown li a:hover { background: var(--accent-subtle); color: var(--accent); }
+  .nav-group:hover .nav-dropdown, .nav-group:focus-within .nav-dropdown { display: block; }
   @media (max-width: 640px) { .nav-links { display: none; } }
 
   /* Sections */
@@ -489,17 +488,66 @@
   .legend-month{background:var(--base);border:1px solid var(--border);}
 </style>
 </head>
-<body data-page="index">
+<body id="top" data-page="index">
 
 <nav class="nav">
   <div class="nav-inner">
-    <a href="/" class="nav-brand">Gender Predictor</a>
+    <a href="#top" class="nav-brand">Gender Predictor</a>
     <ul class="nav-links">
-      <li><a href="#methods">Methods</a></li>
-      <li><a href="#quiz">Quiz</a></li>
-      <li><a href="#calendar">Calendar</a></li>
-      <li><a href="blog/">Blog</a></li>
-      <li><a href="#faq">FAQ</a></li>
+      <li class="nav-group">
+        <button type="button" class="nav-group-btn">Tools <span class="nav-caret">&#9662;</span></button>
+        <ul class="nav-dropdown">
+          <li><a href="#sec-chinese-gender-chart">Chinese Gender Chart</a></li>
+          <li><a href="#sec-baby-gender-prediction-quiz">Old Wives&rsquo; Tales Quiz</a></li>
+          <li><a href="#sec-boy-or-girl-quiz">Boy or Girl Quiz</a></li>
+          <li><a href="#sec-gender-predictor-accuracy">Accuracy Data</a></li>
+        </ul>
+      </li>
+      <li class="nav-group">
+        <button type="button" class="nav-group-btn">Methods <span class="nav-caret">&#9662;</span></button>
+        <ul class="nav-dropdown">
+          <li><a href="#sec-nub-theory-boy-vs-girl">Nub Theory</a></li>
+          <li><a href="#sec-ramzi-theory-boy-vs-girl">Ramzi Theory</a></li>
+          <li><a href="#sec-skull-theory-boy-vs-girl">Skull Theory</a></li>
+          <li><a href="#sec-baking-soda-gender-test">Baking Soda Test</a></li>
+          <li><a href="#sec-ring-gender-test">Ring Test</a></li>
+          <li><a href="#sec-pregnancy-symptoms-boy-vs-girl">Symptoms</a></li>
+          <li><a href="#sec-when-to-find-out-gender">When to Find Out</a></li>
+        </ul>
+      </li>
+      <li class="nav-group">
+        <button type="button" class="nav-group-btn">Compare <span class="nav-caret">&#9662;</span></button>
+        <ul class="nav-dropdown">
+          <li><a href="#sec-chinese-calendar-vs-ramzi-theory">Calendar vs Ramzi</a></li>
+          <li><a href="#sec-chinese-calendar-vs-nub-theory">Calendar vs Nub</a></li>
+          <li><a href="#sec-chinese-calendar-vs-old-wives-tales">Calendar vs Old Wives&rsquo; Tales</a></li>
+          <li><a href="#sec-ramzi-vs-nub-theory">Ramzi vs Nub</a></li>
+        </ul>
+      </li>
+      <li class="nav-group">
+        <button type="button" class="nav-group-btn">Blog <span class="nav-caret">&#9662;</span></button>
+        <ul class="nav-dropdown">
+          <li><a href="#sec-blog">All Articles</a></li>
+          <li><a href="#sec-blog-gender-predictor-accuracy-research">Predictor Accuracy</a></li>
+          <li><a href="#sec-blog-gender-predictor-methods-compared">Methods Compared</a></li>
+          <li><a href="#sec-blog-how-accurate-is-chinese-gender-chart">Chinese Chart Accuracy</a></li>
+          <li><a href="#sec-blog-when-can-you-tell-baby-gender">Gender Timeline</a></li>
+          <li><a href="#sec-blog-ramzi-theory-ultrasound-guide">Ramzi Guide</a></li>
+          <li><a href="#sec-blog-nub-theory-12-weeks">Nub Theory Guide</a></li>
+          <li><a href="#sec-blog-old-wives-tales-baby-gender">Old Wives&rsquo; Tales</a></li>
+          <li><a href="#sec-blog-ring-test-gender-prediction">Ring Test Guide</a></li>
+          <li><a href="#sec-blog-skull-theory-gender">Skull Theory Guide</a></li>
+          <li><a href="#sec-blog-baking-soda-gender-test">Baking Soda Guide</a></li>
+          <li><a href="#sec-blog-gender-reveal-ideas">Gender Reveal Ideas</a></li>
+        </ul>
+      </li>
+      <li class="nav-group">
+        <button type="button" class="nav-group-btn">Info <span class="nav-caret">&#9662;</span></button>
+        <ul class="nav-dropdown">
+          <li><a href="#sec-about">About</a></li>
+          <li><a href="#sec-privacy">Privacy</a></li>
+        </ul>
+      </li>
     </ul>
   </div>
 </nav><main>
@@ -731,7 +779,6 @@
       <p style="font-family:'Outfit',system-ui,sans-serif;font-weight:600;font-size:1rem;color:var(--accent);margin-bottom:6px;">How accurate is the Chinese gender chart?</p>
       <p style="font-size:.875rem;color:var(--text-muted);line-height:1.6;">The chart claims 50 to 90 percent accuracy depending on the source. In reality, it has about a 50 percent chance of being right, which is the same as guessing. All prediction methods on this page are for entertainment purposes only.</p>
     </div>
-  </div>
 </section>
 
 <section class="section methods" id="methods">
@@ -740,9 +787,9 @@
     <h2 class="section-heading">Nine methods, one answer</h2>
     <p class="section-sub">Each method contributes to the combined prediction. Click any card to explore the science (and myth) behind it.</p>
     <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;">
-      <a href="blog/gender-predictor-methods-compared/" class="btn btn-ghost btn-sm">Which method is most accurate?</a>
-      <a href="blog/ramzi-theory-ultrasound-guide/" class="btn btn-ghost btn-sm">Ramzi theory deep dive</a>
-      <a href="blog/nub-theory-12-weeks/" class="btn btn-ghost btn-sm">Nub theory at 12 weeks</a>
+      <a href="/blog/gender-predictor-methods-compared/" class="btn btn-ghost btn-sm">Which method is most accurate?</a>
+      <a href="/blog/ramzi-theory-ultrasound-guide/" class="btn btn-ghost btn-sm">Ramzi theory deep dive</a>
+      <a href="/blog/nub-theory-12-weeks/" class="btn btn-ghost btn-sm">Nub theory at 12 weeks</a>
     </div>
     <div class="methods-grid" id="methods-grid"></div>
   </div>
@@ -927,7 +974,7 @@
       </div>
     </div>
     <p style="margin-top:28px;text-align:center;">
-      <span style="display:inline-flex;align-items:center;gap:6px;font-size:.875rem;color:var(--text-muted);">Want more ideas? <a href="blog/gender-reveal-ideas/" style="color:var(--accent);font-weight:600;">Read our complete guide</a></span>
+      <span style="display:inline-flex;align-items:center;gap:6px;font-size:.875rem;color:var(--text-muted);">Want more ideas? <a href="/blog/gender-reveal-ideas/" style="color:var(--accent);font-weight:600;">Read our complete guide</a></span>
     </p>
   </div>
 </section>
@@ -938,7 +985,7 @@
   <div class="footer-inner">
     <p class="footer-text">Gender Predictor is for entertainment purposes and is not meant to support gender selection or sex determination. Every child is precious — always consult medical professionals for accurate information.</p>
     <ul class="footer-links">
-      <li><a href="blog/">Blog</a></li>
+      <li><a href="/blog/">Blog</a></li>
       <li><a href="/about/">About</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="/privacy/">Privacy</a></li>
@@ -1079,16 +1126,16 @@ var FAQ_ITEMS = [
 // ── Render Methods ──
 function renderMethods(results) {
   var methods = [
-    { name:"Chinese Calendar", desc:"Ancient lunar calendar, over 700 years old", icon:"📅", result:results.chinese, link:"blog/how-accurate-is-chinese-gender-chart/" },
-    { name:"Ramzi Theory", desc:"Placenta position at 6-8 week scan", icon:"🔍", result:results.ramzi, link:"blog/ramzi-theory-ultrasound-guide/" },
-    { name:"Nub Theory", desc:"Angle of the genital tubercle", icon:"📏", result:results.nub, link:"blog/nub-theory-12-weeks/" },
-    { name:"Heart Rate", desc:"Baby's beats per minute", icon:"❤️", result:results.heartRate, link:"blog/old-wives-tales-baby-gender/" },
-    { name:"Old Wives' Tales", desc:"15 classic signs and symptoms", icon:"🔮", result:results.quiz, link:"blog/old-wives-tales-baby-gender/" }
+    { name:"Chinese Calendar", desc:"Ancient lunar calendar, over 700 years old", icon:"📅", result:results.chinese, link:"/blog/how-accurate-is-chinese-gender-chart/" },
+    { name:"Ramzi Theory", desc:"Placenta position at 6-8 week scan", icon:"🔍", result:results.ramzi, link:"/blog/ramzi-theory-ultrasound-guide/" },
+    { name:"Nub Theory", desc:"Angle of the genital tubercle", icon:"📏", result:results.nub, link:"/blog/nub-theory-12-weeks/" },
+    { name:"Heart Rate", desc:"Baby's beats per minute", icon:"❤️", result:results.heartRate, link:"/blog/old-wives-tales-baby-gender/" },
+    { name:"Old Wives' Tales", desc:"15 classic signs and symptoms", icon:"🔮", result:results.quiz, link:"/blog/old-wives-tales-baby-gender/" }
   ,
-    { name:"Baking Soda Test", desc:"At-home fizzy science experiment", icon:"🧪", result:results.bakingSoda, link:"blog/baking-soda-gender-test/" },
-    { name:"Skull Theory", desc:"Skull shape at 12-week ultrasound", icon:"💀", result:results.skull, link:"blog/skull-theory-gender/" },
-    { name:"Ring Test", desc:"Wedding ring pendulum swing", icon:"💍", result:results.ring, link:"blog/ring-test-gender-prediction/" },
-    { name:"Gut Feeling", desc:"Your instinct, ~70% in studies", icon:"🤗", result:results.gut, link:"blog/old-wives-tales-baby-gender/" }
+    { name:"Baking Soda Test", desc:"At-home fizzy science experiment", icon:"🧪", result:results.bakingSoda, link:"/blog/baking-soda-gender-test/" },
+    { name:"Skull Theory", desc:"Skull shape at 12-week ultrasound", icon:"💀", result:results.skull, link:"/blog/skull-theory-gender/" },
+    { name:"Ring Test", desc:"Wedding ring pendulum swing", icon:"💍", result:results.ring, link:"/blog/ring-test-gender-prediction/" },
+    { name:"Gut Feeling", desc:"Your instinct, ~70% in studies", icon:"🤗", result:results.gut, link:"/blog/old-wives-tales-baby-gender/" }
   ]; var html='';
   methods.forEach(function(m){
     var label=m.result==='B'?'Boy':m.result==='G'?'Girl':'Unknown';
@@ -1222,12 +1269,12 @@ function renderCountdown(dueDate){
 // ── Related Articles ──
 function renderRelatedArticles(){
   var articles=[
-    {title:'How Accurate Is the Chinese Gender Chart?',link:'blog/how-accurate-is-chinese-gender-chart/'},
-    {title:'15 Old Wives\' Tales for Baby Gender Prediction',link:'blog/old-wives-tales-baby-gender/'},
-    {title:'When Can You Tell Baby Gender? Complete Timeline',link:'blog/when-can-you-tell-baby-gender/'},
-    {title:'Ramzi Theory: How to Read Your Ultrasound',link:'blog/ramzi-theory-ultrasound-guide/'},
-    {title:'Nub Theory at 12 Weeks: Boy vs Girl',link:'blog/nub-theory-12-weeks/'},
-    {title:'Gender Predictor Methods Compared',link:'blog/gender-predictor-methods-compared/'}
+    {title:'How Accurate Is the Chinese Gender Chart?',link:'/blog/how-accurate-is-chinese-gender-chart/'},
+    {title:'15 Old Wives\' Tales for Baby Gender Prediction',link:'/blog/old-wives-tales-baby-gender/'},
+    {title:'When Can You Tell Baby Gender? Complete Timeline',link:'/blog/when-can-you-tell-baby-gender/'},
+    {title:'Ramzi Theory: How to Read Your Ultrasound',link:'/blog/ramzi-theory-ultrasound-guide/'},
+    {title:'Nub Theory at 12 Weeks: Boy vs Girl',link:'/blog/nub-theory-12-weeks/'},
+    {title:'Gender Predictor Methods Compared',link:'/blog/gender-predictor-methods-compared/'}
   ];
   var shuffled=articles.sort(function(){return Math.random()-0.5;});
   var html='<div class="related-articles"><h4>📚 Read next</h4><div class="related-links">';

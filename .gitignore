@@ -5,7 +5,7 @@ node_modules/
 dist/
 
 # Images (generated, not source)
-public/images/
+public/images/*.webp
 
 # IDE
 .vscode/

@@ -64,8 +64,9 @@ for (const [id, rel] of Object.entries(ROUTES)) {
 
 await writeFile(join(ASSETS, "meta.json"), JSON.stringify(meta));
 
-// sitemap
-await cp(join(ROOT, "sitemap.xml"), join(DIST, "sitemap.xml"));
+// sitemap — canonical is sitemap-index.xml; keep sitemap.xml copy for legacy references
+await cp(join(ROOT, "sitemap-index.xml"), join(DIST, "sitemap-index.xml"));
+await cp(join(ROOT, "sitemap-index.xml"), join(DIST, "sitemap.xml"));
 
 console.log("  Single-page index: " + merged.sectionCount + " merged sections");
 console.log("  Full pages: " + (Object.keys(ROUTES).length - 1));

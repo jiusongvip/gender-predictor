@@ -122,9 +122,9 @@ const server = createServer(async (req, res) => {
 
   // Static files from public/
   if (urlPath === "/robots.txt" || urlPath === "/llms.txt" || urlPath === "/og-image.svg" ||
-      urlPath === "/sitemap.xml" || urlPath === "/favicon.ico") {
+      urlPath === "/sitemap-index.xml" || urlPath === "/sitemap.xml" || urlPath === "/favicon.ico") {
     const fp = join(PUBLIC, urlPath.slice(1));
-    const fp2 = urlPath === "/sitemap.xml" ? join(ROOT, "sitemap.xml") : null;
+    const fp2 = (urlPath === "/sitemap-index.xml" || urlPath === "/sitemap.xml") ? join(ROOT, "sitemap-index.xml") : null;
     if (await sendFile(req, res, fp)) return;
     if (fp2 && await sendFile(req, res, fp2)) return;
     return notFound(res);

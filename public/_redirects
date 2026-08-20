@@ -3,6 +3,6 @@
 /about /about/ 301
 /privacy /privacy/ 301
 
-# Astro-style sitemap paths -> canonical sitemap (GSC compatibility)
-/sitemap-index.xml /sitemap.xml 301
-/sitemap-0.xml /sitemap.xml 301
+# Canonical sitemap is sitemap-index.xml; legacy paths redirect to it
+/sitemap.xml /sitemap-index.xml 301
+/sitemap-0.xml /sitemap-index.xml 301

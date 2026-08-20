@@ -2,3 +2,7 @@
 /blog /blog/ 301
 /about /about/ 301
 /privacy /privacy/ 301
+
+# Astro-style sitemap paths -> canonical sitemap (GSC compatibility)
+/sitemap-index.xml /sitemap.xml 301
+/sitemap-0.xml /sitemap.xml 301

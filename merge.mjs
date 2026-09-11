@@ -27,6 +27,16 @@ export function rewriteLinks(html) {
 
 const backToTop = '<a class="spa-back-top" href="#top">&#8593; Back to top</a>';
 
+// Demote headings inside merged sections by one level (h1->h2, h2->h3, ...).
+// The merged homepage keeps exactly one H1 (its own hero) and a valid
+// h1 > h2 > h3 hierarchy; full standalone pages keep their own single H1.
+export function demoteHeadings(html) {
+  return html.replace(/<(\/?)h([1-5])(\s[^>]*)?>/gi, (m, slash, lvl, attrs) => {
+    const n = Math.min(6, Number(lvl) + 1);
+    return "<" + slash + "h" + n + (attrs || "") + ">";
+  });
+}
+
 export async function buildMergedIndex() {
   const indexSrc = await readFile(join(SRC, "index.html"), "utf8");
 
@@ -53,7 +63,7 @@ export async function buildMergedIndex() {
     const raw = await readFile(join(SRC, ROUTES[id]), "utf8");
     const main = extractMain(raw);
     if (!main) continue;
-    const inner = rewriteLinks(main);
+    const inner = demoteHeadings(rewriteLinks(main));
     sections +=
       '\n<section class="spa-merged" id="' + secId(id) + '">' +
       backToTop +

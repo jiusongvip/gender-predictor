@@ -38,9 +38,27 @@ export function extractHead(html) {
 // og:image by Facebook/X and most social platforms).
 const OG_IMAGE = "https://gender-predictor.com/og-image.png";
 
+// Defer the gtag.js download (~510 KB) until after window load so it does not
+// compete with HTML/font/CSS in the critical rendering path (mobile LCP).
+// The dataLayer + config still queue immediately; the script loads post-paint.
+export function deferGtag(html) {
+  const idm = html.match(/gtag\/js\?id=([A-Z0-9-]+)/i);
+  if (!idm) return html;
+  const id = idm[1];
+  let out = html.replace(
+    /<script async src="https:\/\/www\.googletagmanager\.com\/gtag\/js\?id=[A-Z0-9-]+"><\/script>\s*/i,
+    ""
+  );
+  out = out.replace(
+    /(gtag\('config',\s*'[A-Z0-9-]+'\);)/i,
+    "$1\n  window.addEventListener('load',function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=" + id + "';document.head.appendChild(s);});"
+  );
+  return out;
+}
+
 // Wrap a page's <main> into the SPA shell structure, add router script + data-page.
 export function enhancePage(html, id) {
-  let out = html;
+  let out = deferGtag(html);
 
   // Inject og:image / twitter:image for pages that miss them.
   const missing = [];

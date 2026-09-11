@@ -1,7 +1,7 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { extractMain, extractStyles } from "./extract-fragments.mjs";
+import { extractMain, extractStyles, deferGtag } from "./extract-fragments.mjs";
 import { ROUTES } from "./routes.mjs";
 
 const ROOT = fileURLToPath(new URL(".", import.meta.url));
@@ -93,7 +93,7 @@ export async function buildMergedIndex() {
   // 5. Append merged styles into <head> (before </head>).
   const mergedHead = merged.replace("</head>", mergedStyle + "\n</head>");
 
-  return { html: mergedHead, styleSize: mergedStyle.length, sectionCount: ORDER.length };
+  return { html: deferGtag(mergedHead), styleSize: mergedStyle.length, sectionCount: ORDER.length };
 }
 
 if (process.argv[1] && process.argv[1].endsWith("merge.mjs")) {

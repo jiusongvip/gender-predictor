@@ -34,9 +34,30 @@ export function extractHead(html) {
   };
 }
 
+// Site-wide default social image (1200x630 PNG; SVG is not supported as
+// og:image by Facebook/X and most social platforms).
+const OG_IMAGE = "https://gender-predictor.com/og-image.png";
+
 // Wrap a page's <main> into the SPA shell structure, add router script + data-page.
 export function enhancePage(html, id) {
   let out = html;
+
+  // Inject og:image / twitter:image for pages that miss them.
+  const missing = [];
+  if (!/property="og:image"/i.test(out)) {
+    missing.push(
+      '<meta property="og:image" content="' + OG_IMAGE + '">',
+      '<meta property="og:image:width" content="1200">',
+      '<meta property="og:image:height" content="630">'
+    );
+  }
+  if (!/name="twitter:image"/i.test(out) && /name="twitter:card"/i.test(out)) {
+    missing.push('<meta name="twitter:image" content="' + OG_IMAGE + '">');
+  }
+  if (missing.length) {
+    out = out.replace(/<\/head>/i, "  " + missing.join("\n  ") + "\n</head>");
+  }
+
   out = out.replace(/<body([^>]*)>/i, (full, attrs) => {
     const attr = (attrs || "").includes("data-page") ? attrs : (attrs || "") + ' data-page="' + id + '"';
     return "<body" + attr + ">";

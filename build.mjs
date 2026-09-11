@@ -21,11 +21,15 @@ const merged = await buildMergedIndex();
 await writeFile(join(DIST, "index.html"), merged.html);
 
 // Full pages stay in dist -> SEO deep links + no-JS still work.
+// Directory format: dist/<route>/index.html so /about/ serves 200 directly
+// (matches canonical + sitemap trailing slashes; /about -> /about/ via _redirects 301).
 // Each complete page gets data-page + router.js so deep-link entry also SPAs.
 for (const [id, rel] of Object.entries(ROUTES)) {
   if (id === "index") continue;
-  const dest = join(DIST, rel);
-  await mkdir(join(dest, ".."), { recursive: true });
+  // "about.html" -> "about"; "blog/index.html" -> "blog"; "blog/x.html" -> "blog/x"
+  const dir = rel.replace(/\.html$/, "").replace(/\/index$/, "");
+  const dest = join(DIST, dir, "index.html");
+  await mkdir(join(DIST, dir), { recursive: true });
   const raw = await readFile(join(SRC, rel), "utf8");
   const enhanced = enhancePage(raw, id);
   await writeFile(dest, enhanced);
@@ -40,6 +44,10 @@ await cp(join(PUBLIC, "llms.txt"), join(DIST, "llms.txt"));
 await cp(join(PUBLIC, "_headers"), join(DIST, "_headers"));
 await cp(join(PUBLIC, "_redirects"), join(DIST, "_redirects"));
 await cp(join(PUBLIC, "og-image.svg"), join(DIST, "og-image.svg"));
+await cp(join(PUBLIC, "og-image.png"), join(DIST, "og-image.png"));
+// Cloudflare Pages serves 404.html for unmatched paths with HTTP 404
+// (prevents soft-404: unknown URLs previously returned index.html with 200).
+await cp(join(PUBLIC, "404.html"), join(DIST, "404.html"));
 
 // Images (placeholders; generated assets live under public/images)
 try {

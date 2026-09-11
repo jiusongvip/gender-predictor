@@ -6,8 +6,14 @@
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <text x="600" y="200" text-anchor="middle" font-size="120">👶</text>
-  <text x="600" y="340" text-anchor="middle" font-family="system-ui,sans-serif" font-weight="800" font-size="64" fill="#2d2933">Gender Predictor</text>
-  <text x="600" y="420" text-anchor="middle" font-family="system-ui,sans-serif" font-weight="600" font-size="32" fill="#7b6b9a">9 Methods Combined · Free · Instant</text>
-  <text x="600" y="520" text-anchor="middle" font-family="system-ui,sans-serif" font-size="24" fill="#9893a0">gender-predictor.com</text>
+  <circle cx="150" cy="115" r="88" fill="#e8f0f7"/>
+  <circle cx="1058" cy="520" r="108" fill="#f9eeef"/>
+  <circle cx="1042" cy="132" r="42" fill="#c8848f" opacity=".85"/>
+  <circle cx="168" cy="508" r="52" fill="#8ba6c8" opacity=".85"/>
+  <path d="M 600 85 A 95 95 0 0 0 600 275 Z" fill="#8ba6c8"/>
+  <path d="M 600 85 A 95 95 0 0 1 600 275 Z" fill="#c8848f"/>
+  <text x="600" y="222" text-anchor="middle" font-family="Arial" font-weight="700" font-size="110" fill="#ffffff">?</text>
+  <text x="600" y="352" text-anchor="middle" font-family="Arial" font-weight="800" font-size="72" fill="#2d2933">Gender Predictor</text>
+  <text x="600" y="428" text-anchor="middle" font-family="Arial" font-weight="600" font-size="34" fill="#7b6b9a">9 Methods Combined · Free · Instant</text>
+  <text x="600" y="528" text-anchor="middle" font-family="Arial" font-size="26" fill="#9893a0">gender-predictor.com</text>
 </svg>

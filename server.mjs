@@ -71,9 +71,15 @@ function sendRaw(res, content, type = "text/html; charset=utf-8", cache = false)
   res.end(content);
 }
 
-function notFound(res) {
-  res.writeHead(404, { "Content-Type": "text/html; charset=utf-8" });
-  res.end("<h1>404 Not Found</h1>");
+async function notFound(res) {
+  try {
+    const content = await readFile(join(PUBLIC, "404.html"));
+    res.writeHead(404, { "Content-Type": "text/html; charset=utf-8" });
+    res.end(content);
+  } catch {
+    res.writeHead(404, { "Content-Type": "text/html; charset=utf-8" });
+    res.end("<h1>404 Not Found</h1>");
+  }
 }
 
 async function buildMeta() {
@@ -122,6 +128,7 @@ const server = createServer(async (req, res) => {
 
   // Static files from public/
   if (urlPath === "/robots.txt" || urlPath === "/llms.txt" || urlPath === "/og-image.svg" ||
+      urlPath === "/og-image.png" ||
       urlPath === "/sitemap-index.xml" || urlPath === "/sitemap.xml" || urlPath === "/favicon.ico") {
     const fp = join(PUBLIC, urlPath.slice(1));
     const fp2 = (urlPath === "/sitemap-index.xml" || urlPath === "/sitemap.xml") ? join(ROOT, "sitemap-index.xml") : null;

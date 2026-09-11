@@ -55,8 +55,18 @@
       return;
     }
 
-    // Same-page plain link (e.g. href="/" on the shell) — nothing to do.
-    if (u.pathname === "/" && !u.hash) { e.preventDefault(); }
+    // A plain "/" link (nav brand). On the homepage shell there is nothing to
+    // load, so scroll to top and suppress the reload. On a standalone subpage,
+    // "/" must navigate home normally — do NOT preventDefault, or the brand
+    // link becomes dead (only Ctrl+click would work).
+    if (u.pathname === "/" && !u.hash) {
+      if ((location.pathname || "/") === "/") {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      // otherwise fall through and let the browser navigate home
+      return;
+    }
   });
 
   // Initial load: honor a hash deep link on the merged page.

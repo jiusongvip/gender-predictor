@@ -76,6 +76,11 @@ export function enhancePage(html, id) {
     out = out.replace(/<\/head>/i, "  " + missing.join("\n  ") + "\n</head>");
   }
 
+  // Brand consistency: every page gets the same og:site_name.
+  if (!/property="og:site_name"/i.test(out)) {
+    out = out.replace(/<\/head>/i, '  <meta property="og:site_name" content="Gender Predictor">\n</head>');
+  }
+
   out = out.replace(/<body([^>]*)>/i, (full, attrs) => {
     const attr = (attrs || "").includes("data-page") ? attrs : (attrs || "") + ' data-page="' + id + '"';
     return "<body" + attr + ">";

@@ -19,6 +19,7 @@
 <meta property="og:title" content="Chinese Gender Predictor 2026 — Free Baby Gender Prediction">
 <meta property="og:description" content="Predict your baby's gender with 9 methods combined. Instant & free.">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Gender Predictor">
 <meta property="og:url" content="https://gender-predictor.com">
 <meta name="twitter:card" content="summary_large_image">
 <meta property="og:image" content="https://gender-predictor.com/og-image.png">
@@ -28,7 +29,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Chinese Gender Predictor","description":"Free baby gender prediction tool combining Chinese calendar, Ramzi theory, old wives' tales, nub theory, and heart rate methods.","applicationCategory":"HealthApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0"},"url":"https://gender-predictor.com/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Chinese Gender Predictor","description":"Free baby gender prediction tool combining Chinese calendar, Ramzi theory, old wives' tales, nub theory, and heart rate methods.","applicationCategory":"HealthApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0"},"url":"https://gender-predictor.com/","author":{"@type":"Organization","name":"Gender Predictor Editorial Team","url":"https://gender-predictor.com/about/"},"datePublished":"2026-01-15","dateModified":"2026-09-11","isAccessibleForFree":true}</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -61,7 +62,9 @@
   "name": "Gender Predictor",
   "url": "https://gender-predictor.com",
   "description": "Free baby gender prediction tool combining 9 methods: Chinese calendar, Ramzi theory, nub theory, heart rate, old wives tales, baking soda test, skull theory, ring test and gut feeling.",
-  "logo": "https://gender-predictor.com/og-image.png"
+  "logo": "https://gender-predictor.com/og-image.png",
+  "email": "hello@gender-predictor.com",
+  "contactPoint": { "@type": "ContactPoint", "email": "hello@gender-predictor.com", "contactType": "customer support", "url": "https://gender-predictor.com/contact/" }
 }
 </script>
 
@@ -163,6 +166,13 @@
     color: var(--text-muted); font-size: 1.0625rem; line-height: 1.6;
     margin-top: 20px; max-width: 440px;
   }
+  .hero-byline {
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+    margin-top: 16px; font-size: .8125rem; color: var(--text-subtle);
+  }
+  .hero-byline a { color: var(--accent); text-decoration: none; font-weight: 600; }
+  .hero-byline a:hover { text-decoration: underline; }
+  .hero-byline .dot { color: var(--border); }
   .hero-form { margin-top: 32px; display: flex; flex-direction: column; gap: 16px; max-width: 400px; }
   .input-group { display: flex; flex-direction: column; gap: 6px; }
   .input-group label {
@@ -577,6 +587,11 @@
       </p>
       <p class="hero-desc" id="hero-desc-quick" style="display:none;">
         The classic quick check — just like the traditional chart. Pick your age at conception and the month of conception. No dates needed, instant answer.
+      </p>
+      <p class="hero-byline">
+        By <a href="/about/">the Gender Predictor editorial team</a>
+        <span class="dot">&middot;</span>
+        Updated <time datetime="2026-09-11">September 11, 2026</time>
       </p>
       <div class="mode-toggle" id="mode-toggle">
         <button class="mode-toggle-btn active" data-mode="predict" onclick="switchMode('predict')">🔮 Predict Gender</button>

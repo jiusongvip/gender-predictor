@@ -16,11 +16,16 @@ export function secId(id) {
 }
 
 // Rewrite absolute route links inside merged content to in-page anchors.
+// Identity/trust pages (about, privacy, terms, contact) keep real URLs so
+// they remain crawlable; router.js still scrolls to the merged section on
+// click, so the SPA UX is unchanged.
+const KEEP_REAL = new Set(["about", "privacy", "terms", "contact"]);
+
 export function rewriteLinks(html) {
   return html.replace(/href="\/([a-z0-9][^"#]*?)\/?"/g, (full, p) => {
     const id = p.replace(/\/+$/, "").replace(/\.html$/, "") || "index";
     if (id === "index") return 'href="#top"';
-    if (ROUTES[id]) return 'href="#' + secId(id) + '"';
+    if (ROUTES[id]) return KEEP_REAL.has(id) ? full : 'href="#' + secId(id) + '"';
     return full;
   });
 }

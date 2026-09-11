@@ -84,6 +84,17 @@ export function enhancePage(html, id) {
   // Wrap main content for consistency; safe even if no main.
   out = out.replace(/<main([^>]*)>([\s\S]*?)<\/main>/i, (full) => full);
 
+  // Unified trust links (About / Contact / Privacy / Terms) in every footer,
+  // skipping any that page already links. Required for E-E-A-T / AI crawlers.
+  const trust = [["/about/", "About"], ["/contact/", "Contact"], ["/privacy/", "Privacy"], ["/terms/", "Terms"]]
+    .filter(([h]) => !out.includes('href="' + h + '"'));
+  if (trust.length) {
+    const row = '\n    <div style="width:100%;text-align:center;font-size:.8125rem;">' +
+      trust.map(([h, t]) => '<a href="' + h + '" style="color:var(--accent,#7b6b9a);text-decoration:none;">' + t + '</a>').join('<span style="margin:0 10px;color:var(--border,#e8e5ec);">&middot;</span>') +
+      "</div>";
+    out = out.replace(/<\/footer>/i, row + "\n  </footer>");
+  }
+
   // Inject router script right before </body>.
   out = out.replace(/<\/body>/i, '<script src="/router.js"></script>\n</body>');
 

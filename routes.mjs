@@ -4,6 +4,8 @@ export const ROUTES = {
   "index": "index.html",
   "about": "about.html",
   "privacy": "privacy.html",
+  "terms": "terms.html",
+  "contact": "contact.html",
   "chinese-gender-chart": "chinese-gender-chart.html",
   "baby-gender-prediction-quiz": "baby-gender-prediction-quiz.html",
   "boy-or-girl-quiz": "boy-or-girl-quiz.html",

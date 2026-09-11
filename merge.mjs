@@ -8,24 +8,41 @@ const ROOT = fileURLToPath(new URL(".", import.meta.url));
 const SRC = join(ROOT, "src", "pages");
 const DIST = join(ROOT, "dist");
 
-const ORDER = Object.keys(ROUTES).filter((id) => id !== "index");
+// Which routes get their <main> inlined onto the merged homepage.
+// We deliberately EXCLUDE from the homepage merge (they stay standalone,
+// crawlable, in-sitemap pages linked by real URLs):
+//  - blog article bodies ("blog/<slug>"): each is its own post; the Blog
+//    index cards link to them. Inlining 11 full articles ~7k words onto the
+//    tool homepage is the main "content depth" AI-extraction dilution.
+//  - about / privacy / terms / contact: utility/identity pages, linked from
+//    the footer as real URLs, not anchor targets on the tool homepage.
+// Kept merged: the Blog index itself (id "blog"), all tool/method/comparison
+// pages and FAQ — i.e. the actual product surface.
+const NOT_INLINED = new Set(["about", "privacy", "terms", "contact"]);
+export function isInlined(id) {
+  if (id === "index") return false;
+  if (NOT_INLINED.has(id)) return false;
+  if (id.startsWith("blog/")) return false;
+  return true;
+}
+
+const ORDER = Object.keys(ROUTES).filter(isInlined);
 
 // Build section id from route id: "blog/nub-theory-12-weeks" -> "sec-blog-nub-theory-12-weeks"
 export function secId(id) {
   return "sec-" + id.replace(/\//g, "-");
 }
 
-// Rewrite absolute route links inside merged content to in-page anchors.
-// Identity/trust pages (about, privacy, terms, contact) keep real URLs so
-// they remain crawlable; router.js still scrolls to the merged section on
-// click, so the SPA UX is unchanged.
-const KEEP_REAL = new Set(["about", "privacy", "terms", "contact"]);
-
+// Rewrite absolute route links inside merged content to in-page anchors ONLY
+// when that page is actually inlined as a section here. Anything not inlined
+// (blog articles, about/privacy/terms/contact) keeps its real absolute URL so
+// it crawls to the standalone page; router.js only intercepts real nav on
+// standalone pages, so these work everywhere.
 export function rewriteLinks(html) {
   return html.replace(/href="\/([a-z0-9][^"#]*?)\/?"/g, (full, p) => {
     const id = p.replace(/\/+$/, "").replace(/\.html$/, "") || "index";
     if (id === "index") return 'href="#top"';
-    if (ROUTES[id]) return KEEP_REAL.has(id) ? full : 'href="#' + secId(id) + '"';
+    if (ROUTES[id] && isInlined(id)) return 'href="#' + secId(id) + '"';
     return full;
   });
 }
@@ -83,8 +100,8 @@ export async function buildMergedIndex() {
   // Relative links inside home: href="blog/..." (no leading slash)
   homeMain = homeMain.replace(/href="(blog\/[a-z0-9][^"#]*?)\/?"/g, (full, p) => {
     const id = p.replace(/\/+$/, "").replace(/\.html$/, "");
-    if (ROUTES["blog/" + id]) return 'href="#' + secId("blog/" + id) + '"';
-    if (ROUTES[id]) return 'href="#' + secId(id) + '"';
+    if (ROUTES["blog/" + id] && isInlined("blog/" + id)) return 'href="#' + secId("blog/" + id) + '"';
+    if (ROUTES[id] && isInlined(id)) return 'href="#' + secId(id) + '"';
     return full;
   });
 

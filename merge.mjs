@@ -9,21 +9,23 @@ const SRC = join(ROOT, "src", "pages");
 const DIST = join(ROOT, "dist");
 
 // Which routes get their <main> inlined onto the merged homepage.
-// We deliberately EXCLUDE from the homepage merge (they stay standalone,
-// crawlable, in-sitemap pages linked by real URLs):
-//  - blog article bodies ("blog/<slug>"): each is its own post; the Blog
-//    index cards link to them. Inlining 11 full articles ~7k words onto the
-//    tool homepage is the main "content depth" AI-extraction dilution.
-//  - about / privacy / terms / contact: utility/identity pages, linked from
-//    the footer as real URLs, not anchor targets on the tool homepage.
-// Kept merged: the Blog index itself (id "blog"), all tool/method/comparison
-// pages and FAQ — i.e. the actual product surface.
-const NOT_INLINED = new Set(["about", "privacy", "terms", "contact"]);
+//
+// By default the homepage is a FOCUSED tool landing page: it keeps only its
+// own authored content (hero calculator, methods overview, accuracy table,
+// FAQ — ~1.5k words). Every method / quiz / comparison / blog / about /
+// privacy / terms / contact page stays a STANDALONE, in-sitemap URL and is
+// linked from the nav and body by REAL absolute URLs. This removes the
+// ~6.8k words of duplicated sub-page bodies that were diluting AI extraction
+// of the homepage (the GEO "content depth" signal) and eliminates duplicate
+// content across two URLs.
+//
+// To re-inline a section (in-page scroll on the home), add its route id here;
+// rewriteLinks() will map its real URLs to #sec- anchors only while inlined,
+// so nav links keep working either way.
+const MERGE_HOME = new Set();
+
 export function isInlined(id) {
-  if (id === "index") return false;
-  if (NOT_INLINED.has(id)) return false;
-  if (id.startsWith("blog/")) return false;
-  return true;
+  return MERGE_HOME.has(id);
 }
 
 const ORDER = Object.keys(ROUTES).filter(isInlined);

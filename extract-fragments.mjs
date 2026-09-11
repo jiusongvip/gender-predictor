@@ -36,7 +36,7 @@ export function extractHead(html) {
 
 // Site-wide default social image (1200x630 PNG; SVG is not supported as
 // og:image by Facebook/X and most social platforms).
-const OG_IMAGE = "https://gender-predictor.com/og-image.png";
+const OG_IMAGE = "https://www.gender-predictor.com/og-image.png";
 
 // Defer the gtag.js download (~510 KB) until after window load so it does not
 // compete with HTML/font/CSS in the critical rendering path (mobile LCP).

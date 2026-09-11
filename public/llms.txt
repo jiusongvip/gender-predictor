@@ -3,37 +3,37 @@
 > Free baby gender prediction tool combining 9 methods: Chinese calendar, Ramzi theory, nub theory, heart rate, old wives tales, baking soda test, skull theory, ring test, and gut feeling. All predictions run in the browser for entertainment purposes only and are not medical advice.
 
 ## Tool
-- [Home](https://gender-predictor.com): Main prediction tool with all 9 methods combined, plus baby name finder and countdown timer. Works for conceptions in 2026 and 2027 (the Chinese gender chart itself never changes year to year).
+- [Home](https://www.gender-predictor.com): Main prediction tool with all 9 methods combined, plus baby name finder and countdown timer. Works for conceptions in 2026 and 2027 (the Chinese gender chart itself never changes year to year).
 
 ## Methods
-- [Chinese Gender Chart](https://gender-predictor.com/chinese-gender-chart/): Chinese gender calendar predictor with full calendar table
-- [Baking Soda Gender Test](https://gender-predictor.com/baking-soda-gender-test/): Baking soda gender test guide and interactive predictor
-- [Ring Gender Test](https://gender-predictor.com/ring-gender-test/): Wedding ring pendulum test guide
-- [Baby Gender Prediction Quiz](https://gender-predictor.com/baby-gender-prediction-quiz/): 15-question old wives tales quiz
-- [Boy or Girl Quiz](https://gender-predictor.com/boy-or-girl-quiz/): Quick boy or girl prediction quiz
+- [Chinese Gender Chart](https://www.gender-predictor.com/chinese-gender-chart/): Chinese gender calendar predictor with full calendar table
+- [Baking Soda Gender Test](https://www.gender-predictor.com/baking-soda-gender-test/): Baking soda gender test guide and interactive predictor
+- [Ring Gender Test](https://www.gender-predictor.com/ring-gender-test/): Wedding ring pendulum test guide
+- [Baby Gender Prediction Quiz](https://www.gender-predictor.com/baby-gender-prediction-quiz/): 15-question old wives tales quiz
+- [Boy or Girl Quiz](https://www.gender-predictor.com/boy-or-girl-quiz/): Quick boy or girl prediction quiz
 
 ## Comparisons
-- [Chinese Calendar vs Ramzi Theory](https://gender-predictor.com/chinese-calendar-vs-ramzi-theory/): Chinese calendar vs Ramzi theory comparison
-- [Chinese Calendar vs Nub Theory](https://gender-predictor.com/chinese-calendar-vs-nub-theory/): Chinese calendar vs nub theory comparison
-- [Chinese Calendar vs Old Wives Tales](https://gender-predictor.com/chinese-calendar-vs-old-wives-tales/): Chinese calendar vs old wives tales
-- [Ramzi vs Nub Theory](https://gender-predictor.com/ramzi-vs-nub-theory/): Ramzi vs nub theory comparison
+- [Chinese Calendar vs Ramzi Theory](https://www.gender-predictor.com/chinese-calendar-vs-ramzi-theory/): Chinese calendar vs Ramzi theory comparison
+- [Chinese Calendar vs Nub Theory](https://www.gender-predictor.com/chinese-calendar-vs-nub-theory/): Chinese calendar vs nub theory comparison
+- [Chinese Calendar vs Old Wives Tales](https://www.gender-predictor.com/chinese-calendar-vs-old-wives-tales/): Chinese calendar vs old wives tales
+- [Ramzi vs Nub Theory](https://www.gender-predictor.com/ramzi-vs-nub-theory/): Ramzi vs nub theory comparison
 
 ## Blog
-- [Blog](https://gender-predictor.com/blog/): Blog index with 11 articles on gender prediction methods, accuracy, and tips
-- [Gender Predictor Accuracy Research](https://gender-predictor.com/blog/gender-predictor-accuracy-research/): Real accuracy data across all methods
-- [Gender Predictor Methods Compared](https://gender-predictor.com/blog/gender-predictor-methods-compared/): 11 methods side-by-side comparison
-- [How Accurate Is the Chinese Gender Chart](https://gender-predictor.com/blog/how-accurate-is-chinese-gender-chart/): Chinese gender chart accuracy analysis
-- [Old Wives Tales Baby Gender](https://gender-predictor.com/blog/old-wives-tales-baby-gender/): Complete guide to 15 wives tales
-- [Ramzi Theory Ultrasound Guide](https://gender-predictor.com/blog/ramzi-theory-ultrasound-guide/): How to read ultrasound for Ramzi theory
-- [Nub Theory at 12 Weeks](https://gender-predictor.com/blog/nub-theory-12-weeks/): Nub theory guide at 12 weeks
-- [When Can You Tell Baby Gender](https://gender-predictor.com/blog/when-can-you-tell-baby-gender/): Gender prediction timeline 10-20 weeks
-- [Skull Theory Gender](https://gender-predictor.com/blog/skull-theory-gender/): Skull theory for gender prediction
-- [Ring Test Gender Prediction](https://gender-predictor.com/blog/ring-test-gender-prediction/): Ring test complete guide
-- [Baking Soda Gender Test](https://gender-predictor.com/blog/baking-soda-gender-test/): Baking soda test explained
-- [Gender Reveal Ideas](https://gender-predictor.com/blog/gender-reveal-ideas/): 25 creative gender reveal ideas
+- [Blog](https://www.gender-predictor.com/blog/): Blog index with 11 articles on gender prediction methods, accuracy, and tips
+- [Gender Predictor Accuracy Research](https://www.gender-predictor.com/blog/gender-predictor-accuracy-research/): Real accuracy data across all methods
+- [Gender Predictor Methods Compared](https://www.gender-predictor.com/blog/gender-predictor-methods-compared/): 11 methods side-by-side comparison
+- [How Accurate Is the Chinese Gender Chart](https://www.gender-predictor.com/blog/how-accurate-is-chinese-gender-chart/): Chinese gender chart accuracy analysis
+- [Old Wives Tales Baby Gender](https://www.gender-predictor.com/blog/old-wives-tales-baby-gender/): Complete guide to 15 wives tales
+- [Ramzi Theory Ultrasound Guide](https://www.gender-predictor.com/blog/ramzi-theory-ultrasound-guide/): How to read ultrasound for Ramzi theory
+- [Nub Theory at 12 Weeks](https://www.gender-predictor.com/blog/nub-theory-12-weeks/): Nub theory guide at 12 weeks
+- [When Can You Tell Baby Gender](https://www.gender-predictor.com/blog/when-can-you-tell-baby-gender/): Gender prediction timeline 10-20 weeks
+- [Skull Theory Gender](https://www.gender-predictor.com/blog/skull-theory-gender/): Skull theory for gender prediction
+- [Ring Test Gender Prediction](https://www.gender-predictor.com/blog/ring-test-gender-prediction/): Ring test complete guide
+- [Baking Soda Gender Test](https://www.gender-predictor.com/blog/baking-soda-gender-test/): Baking soda test explained
+- [Gender Reveal Ideas](https://www.gender-predictor.com/blog/gender-reveal-ideas/): 25 creative gender reveal ideas
 
 ## About
-- [About](https://gender-predictor.com/about/): Who runs the site and the methodology behind every method page
-- [Contact](https://gender-predictor.com/contact/): Questions, corrections and content licensing via hello@gender-predictor.com
-- [Privacy Policy](https://gender-predictor.com/privacy/): No personal data collected; predictions run locally in the browser
-- [Terms of Use](https://gender-predictor.com/terms/): Entertainment-only disclaimer, liability, and content usage terms
+- [About](https://www.gender-predictor.com/about/): Who runs the site and the methodology behind every method page
+- [Contact](https://www.gender-predictor.com/contact/): Questions, corrections and content licensing via hello@gender-predictor.com
+- [Privacy Policy](https://www.gender-predictor.com/privacy/): No personal data collected; predictions run locally in the browser
+- [Terms of Use](https://www.gender-predictor.com/terms/): Entertainment-only disclaimer, liability, and content usage terms

@@ -28,7 +28,7 @@
 
 
 <style>
-  @font-face{font-family:'Outfit';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/outfit-latin-var.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:'Outfit';font-style:normal;font-weight:400 800;font-display:optional;src:url('/fonts/outfit-latin-var.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
   :root { --base: #faf9f7; --accent: #6b5a8a; --accent-subtle: #f3f1f7; --text: #2d2933; --text-muted: #6b6672; --border: #e8e5ec; --boy: #41638d; --boy-light: #e8f0f7; --girl: #9e5060; --girl-light: #f9eeef; --radius: 12px; --radius-full: 999px; --white: #fff; }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: system-ui, -apple-system, sans-serif; background: var(--base); color: var(--text); line-height: 1.7; }
@@ -78,6 +78,7 @@
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.gender-predictor.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.gender-predictor.com/blog/"},{"@type":"ListItem","position":3,"name":"Gender Predictor Accuracy Research","item":"https://www.gender-predictor.com/blog/gender-predictor-accuracy-research/"}]}
 </script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which gender prediction method is most accurate?","acceptedAnswer":{"@type":"Answer","text":"Medically, NIPT and the anatomy scan. Among non-medical guesses, nub theory leads; every folklore method sits near 50 percent."}},{"@type":"Question","name":"Why are the fun methods only 50 percent?","acceptedAnswer":{"@type":"Answer","text":"None of them measures anything tied to the baby's chromosomes, so their predictions are statistically independent of the outcome."}},{"@type":"Question","name":"Do any symptoms actually predict sex?","acceptedAnswer":{"@type":"Answer","text":"No. Morning sickness, cravings and belly shape vary by mother, not by the baby's sex."}}]}</script>
+  <link rel="preload" href="/fonts/outfit-latin-var.woff2" as="font" type="font/woff2" crossorigin>
 </head>
 <body>
 <nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand">Gender Predictor</a><ul class="nav-links"><li><a href="/#methods">Methods</a></li><li><a href="/#quiz">Quiz</a></li><li><a href="/#calendar">Calendar</a></li><li><a href="/blog/">Blog</a></li><li><a href="/#faq">FAQ</a></li></ul></div></nav><main><article class="article">

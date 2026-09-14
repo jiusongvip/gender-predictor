@@ -27,8 +27,8 @@ export function externalizeAppScript(html, id) {
   const name = `${id}.${hash}.js`;
   const tag = `<script src="/assets/${name}" defer></script>`;
   let out = html.slice(0, best.start) + tag + html.slice(best.end);
-  // Discover the file while the head is still being parsed (defer alone would
-  // only find it at the end of <body>).
-  out = out.replace(/<\/head>/i, `  <link rel="preload" as="script" href="/assets/${name}">\n</head>`);
+  // No <link rel="preload" as="script"> here: a pending high-priority preload
+  // made Chrome hold the first paint of this page (PSI observed FCP went
+  // 1372 ms -> 2371 ms), which costs more than the earlier discovery saves.
   return { html: out, file: { name, code: best.code } };
 }

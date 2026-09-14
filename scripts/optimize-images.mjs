@@ -9,6 +9,9 @@ import { join, dirname, basename } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const DIR = join(fileURLToPath(new URL(".", import.meta.url)), "..", "public", "images");
+// Chrome picks the smallest candidate >= (sizes * DPR). PSI's emulated device is
+// 412 CSS px at 2.625 DPR and sizes describes ~380 px -> it wants ~1000 device px,
+// so a 900w step would be skipped: 600w + 1200w is the useful pair.
 const WIDTHS = [600, 1200];
 
 for (const f of readdirSync(DIR).filter((n) => n.endsWith(".webp") && !/-\d+w\.webp$/.test(n))) {

@@ -64,10 +64,11 @@ function shell(o){
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://www.gender-predictor.com/${o.slug}/">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1f476;</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&optional" rel="stylesheet">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/fonts/outfit-latin-var.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -95,7 +96,8 @@ ${faqSchema(o.faq)}
 }
 </script>
 <style>
-  :root { --base:#faf9f7; --accent:#7b6b9a; --accent-light:#9b8cb5; --accent-subtle:#f3f1f7; --sage:#8aaa9b; --sage-light:#e8f0eb; --text:#2d2933; --text-muted:#6b6672; --text-subtle:#9893a0; --border:#e8e5ec; --boy:#8ba6c8; --boy-light:#e8f0f7; --girl:#c8848f; --girl-light:#f9eeef; --radius:12px; --radius-lg:16px; --radius-full:999px; --white:#fff; --shadow:0 2px 8px rgba(45,41,51,.12),0 1px 2px rgba(45,41,51,.06); --shadow-lg:0 8px 32px rgba(45,41,51,.10); }
+  :root { --base:#faf9f7; --accent:#6b5a8a; --accent-light:#7a6896; --accent-subtle:#f3f1f7; --sage:#3f6e56; --sage-light:#e8f0eb; --text:#2d2933; --text-muted:#6b6672; --text-subtle:#6f6a78; --border:#e8e5ec; --boy:#41638d; --boy-light:#e8f0f7; --girl:#9e5060; --girl-light:#f9eeef; --radius:12px; --radius-lg:16px; --radius-full:999px; --white:#fff; --shadow:0 2px 8px rgba(45,41,51,.12),0 1px 2px rgba(45,41,51,.06); --shadow-lg:0 8px 32px rgba(45,41,51,.10); }  @font-face{font-family:'Outfit';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/outfit-latin-var.woff2') format('woff2')}
+
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{font-family:system-ui,-apple-system,sans-serif;background:var(--base);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
   h1,h2,h3{font-family:'Outfit',system-ui,sans-serif;line-height:1.2}

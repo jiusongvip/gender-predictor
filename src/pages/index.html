@@ -12,7 +12,10 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👶</text></svg>">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <title>Chinese Gender Predictor 2026 — Free Baby Gender Prediction</title>
 <meta name="description" content="Chinese gender predictor 2026 with 9 methods: lunar calendar, Ramzi theory, nub theory, old wives tales, heart rate & more. Free instant baby gender prediction.">
 <link rel="canonical" href="https://www.gender-predictor.com">
@@ -26,10 +29,11 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:image" content="https://www.gender-predictor.com/og-image.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Chinese Gender Predictor","description":"Free baby gender prediction tool combining Chinese calendar, Ramzi theory, old wives' tales, nub theory, and heart rate methods.","applicationCategory":"HealthApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0"},"url":"https://www.gender-predictor.com/","author":{"@type":"Organization","name":"Gender Predictor Editorial Team","url":"https://www.gender-predictor.com/about/"},"datePublished":"2026-01-15","dateModified":"2026-09-11","isAccessibleForFree":true,"sameAs":["https://github.com/jiusongvip/gender-predictor"]}</script>
+
+
+<link rel="preload" href="/fonts/outfit-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Chinese Gender Predictor","description":"Free baby gender prediction tool combining Chinese calendar, Ramzi theory, old wives' tales, nub theory, and heart rate methods.","applicationCategory":"HealthApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://www.gender-predictor.com","author":{"@type":"Organization","name":"Gender Predictor Editorial Team","url":"https://www.gender-predictor.com/about/"},"datePublished":"2026-01-15","dateModified":"2026-09-11","isAccessibleForFree":true,"sameAs":["https://github.com/jiusongvip/gender-predictor"]}</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -74,20 +78,21 @@
 </script>
 
 <style>
+  @font-face{font-family:'Outfit';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/outfit-latin-var.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
   :root {
     --base: #faf9f7;
-    --accent: #7b6b9a;
-    --accent-light: #9b8cb5;
+    --accent: #6b5a8a;
+    --accent-light: #7a6896;
     --accent-subtle: #f3f1f7;
-    --sage: #8aaa9b;
+    --sage: #3f6e56;
     --sage-light: #e8f0eb;
     --text: #2d2933;
     --text-muted: #6b6672;
-    --text-subtle: #9893a0;
+    --text-subtle: #6f6a78;
     --border: #e8e5ec;
-    --boy: #8ba6c8;
+    --boy: #41638d;
     --boy-light: #e8f0f7;
-    --girl: #c8848f;
+    --girl: #9e5060;
     --girl-light: #f9eeef;
     --white: #ffffff;
     --radius-sm: 8px;
@@ -349,6 +354,7 @@
   /* FAQ */
   .faq-list { margin-top: 40px; display: flex; flex-direction: column; gap: 8px; }
   .faq-item { border: 1.5px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+  .faq-h { margin: 0; font-size: inherit; font-weight: inherit; font-family: inherit; }
   .faq-q {
     width: 100%; padding: 18px 24px; text-align: left; background: var(--white);
     border: none; font-family: 'Outfit', system-ui, sans-serif; font-size: .9375rem;
@@ -425,7 +431,7 @@
   .result-method .label{font-size:.75rem;font-weight:700;padding:2px 10px;border-radius:var(--radius-full);}
   .result-method .label.boy{color:var(--boy);background:var(--boy-light);}
   .result-method .label.girl{color:var(--girl);background:var(--girl-light);}
-  .result-method .label.unknown{color:var(--text-muted);background:var(--border);}
+  .result-method .label.unknown{color:var(--text);background:var(--border);}
   /* Related Articles */
   .related-articles{margin-top:28px;padding-top:24px;border-top:1px solid var(--border);}
   .related-articles h4{font-family:"Outfit",system-ui,sans-serif;font-size:.9375rem;font-weight:600;color:var(--text);margin-bottom:12px;}
@@ -451,7 +457,7 @@
   }
   /* Mode Toggle */
   .mode-toggle{display:inline-flex;background:var(--border);border-radius:var(--radius-full);padding:3px;margin-bottom:20px;}
-  .mode-toggle-btn{padding:8px 20px;border:none;border-radius:var(--radius-full);font-size:.8125rem;font-weight:600;cursor:pointer;background:transparent;color:var(--text-muted);font-family:inherit;transition:all .15s;white-space:nowrap;}
+  .mode-toggle-btn{padding:8px 20px;border:none;border-radius:var(--radius-full);font-size:.8125rem;font-weight:600;cursor:pointer;background:transparent;color:var(--text);font-family:inherit;transition:all .15s;white-space:nowrap;}
   .mode-toggle-btn.active{background:var(--white);color:var(--accent);box-shadow:var(--shadow-sm);}
   .mode-toggle-btn:hover:not(.active){color:var(--text);}
   /* Planning Fields */
@@ -1200,7 +1206,7 @@ function renderMethods(results) {
     var cls=m.result==='B'?'boy':m.result==='G'?'girl':'';
     html+='<div class="method-card"><div class="method-icon">'+m.icon+'</div><div class="method-name">'+m.name+'</div><div class="method-subtitle">'+m.desc+'</div>';
     if(m.result)html+='<span class="method-result '+cls+'">'+label+'</span>';
-    html+='<a href="'+m.link+'" class="method-link">Learn more</a></div>';
+    html+='<a href="'+m.link+'" class="method-link">Read the '+m.name+' guide</a></div>';
   });
   document.getElementById('methods-grid').innerHTML=html;
 }
@@ -1227,12 +1233,16 @@ function renderCalendar() {
 function renderFAQ() {
   var html='';
   FAQ_ITEMS.forEach(function(item){
-    html+='<div class="faq-item"><button class="faq-q" onclick="toggleFAQ(this)">'+item.q+'<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><line x1="9" y1="3" x2="9" y2="15"/><line x1="3" y1="9" x2="15" y2="9"/></svg></button><div class="faq-a">'+item.a+'</div></div>';
+    html+='<div class="faq-item"><h3 class="faq-h"><button class="faq-q" aria-expanded="false" onclick="toggleFAQ(this)">'+item.q+'<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><line x1="9" y1="3" x2="9" y2="15"/><line x1="3" y1="9" x2="15" y2="9"/></svg></button></h3><div class="faq-a">'+item.a+'</div></div>';
   });
   document.getElementById('faq-list').innerHTML=html;
 }
 
-function toggleFAQ(btn){ btn.parentElement.classList.toggle('open'); }
+function toggleFAQ(btn){
+  var item=btn.closest('.faq-item');
+  item.classList.toggle('open');
+  btn.setAttribute('aria-expanded', item.classList.contains('open') ? 'true' : 'false');
+}
 
 // ── Quiz ──
 var quizState={step:0,girlScore:0,boyScore:0};
@@ -1357,13 +1367,13 @@ function generateShareCard(gender,confidence,girlVotes,boyVotes){
   ctx.fillText("It's a "+gender+'!',w/2,310);
   var barW=400,barH=16,barX=(w-barW)/2,barY=350;
   ctx.fillStyle='#e8e5ec';ctx.beginPath();ctx.roundRect(barX,barY,barW,barH,8);ctx.fill();
-  ctx.fillStyle=gender==='Girl'?'#c8848f':'#8ba6c8';
+  ctx.fillStyle=gender==='Girl'?'#9e5060':'#41638d';
   ctx.beginPath();ctx.roundRect(barX,barY,barW*confidence/100,barH,8);ctx.fill();
-  ctx.fillStyle='#7b6b9a';ctx.font='600 28px Outfit,system-ui,sans-serif';
+  ctx.fillStyle='#6b5a8a';ctx.font='600 28px Outfit,system-ui,sans-serif';
   ctx.fillText(confidence+'% confidence',w/2,410);
   ctx.fillStyle='#6b6672';ctx.font='24px Outfit,system-ui,sans-serif';
   ctx.fillText('9 methods combined: '+girlVotes+' for girl, '+boyVotes+' for boy',w/2,460);
-  ctx.fillStyle='#9893a0';ctx.font='18px system-ui,sans-serif';
+  ctx.fillStyle='#6f6a78';ctx.font='18px system-ui,sans-serif';
   ctx.fillText('gender-predictor.com',w/2,560);
   return canvas.toDataURL('image/png');
 }
@@ -1545,7 +1555,9 @@ function clearHistory(){
   renderHistory();
 }
 
-(function(){var btt=document.getElementById("back-to-top");if(btt){window.addEventListener("scroll",function(){btt.classList.toggle("visible",window.scrollY>600);});btt.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"});});}})();
+// The button element is emitted after this script, so binding at parse time
+// found nothing and the control never worked. Bind once the DOM is complete.
+document.addEventListener("DOMContentLoaded",function(){var btt=document.getElementById("back-to-top");if(btt){window.addEventListener("scroll",function(){btt.classList.toggle("visible",window.scrollY>600);},{passive:true});btt.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"});});}});
 function loadSavedNames(){var raw=localStorage.getItem("gp_saved_names");return raw?JSON.parse(raw):[];}
 function saveNameToList(name){var names=loadSavedNames();if(names.indexOf(name)===-1)names.push(name);else names=names.filter(function(n){return n!==name});localStorage.setItem("gp_saved_names",JSON.stringify(names));showSavedNames();}
 function showSavedNames(){var names=loadSavedNames();var el=document.getElementById("saved-names-bar");if(!el)return;if(names.length===0){el.classList.remove("visible");return}el.classList.add("visible");var html="";names.forEach(function(n){html+='<span class="sn-name" onclick="removeName(this.textContent)" title="Click to remove">'+n+'</span>'});el.querySelector(".sn-list").innerHTML=html}
@@ -1786,17 +1798,35 @@ renderHistory();
     document.getElementById('predict-form').requestSubmit();
   }
 })();
-renderMethods({});
-renderCalendar();
   var findBtn=document.getElementById("find-on-chart-btn");
   var ageInput=document.getElementById("lunar-age");
   if(findBtn) findBtn.addEventListener("click",function(){highlightCalendar(true);});
   if(ageInput) ageInput.addEventListener("input",function(){highlightCalendar();});
-renderFAQ();
-renderQuiz();
+// The build already server-rendered the methods grid, lunar table and FAQ with
+// markup identical to what these renderers produce, so re-rendering them was
+// ~2s of main-thread work in front of the hero (LCP) for nothing. Hydrate only
+// the quiz (the SSR copy is a static crawlable list) and only after first paint.
+(function () {
+  var ssrFilled = ["methods-grid", "calendar-wrap", "faq-list"].every(function (id) {
+    var el = document.getElementById(id);
+    return el && el.children.length > 0;
+  });
+  function afterPaint(fn) {
+    if (!window.requestAnimationFrame) { setTimeout(fn, 0); return; }
+    requestAnimationFrame(function () { requestAnimationFrame(fn); });
+  }
+  if (ssrFilled) {
+    afterPaint(function () { renderQuiz(); });
+  } else {
+    renderMethods({});
+    renderCalendar();
+    renderFAQ();
+    renderQuiz();
+  }
+})();
 
 </script>
 <button class="back-to-top" id="back-to-top" title="Back to top">↑</button>
-<script src="/router.js"></script>
+<script src="/router.js" defer></script>
 </body>
 </html>

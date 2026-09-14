@@ -34,7 +34,7 @@ function buildMethodsHtml(methods) {
     return '<div class="method-card"><div class="method-icon">' + esc(m.icon) + '</div>'
       + '<div class="method-name">' + esc(m.name) + '</div>'
       + '<div class="method-subtitle">' + esc(m.desc) + '</div>'
-      + '<a href="' + m.link + '" class="method-link">Learn more</a></div>';
+      + '<a href="' + m.link + '" class="method-link">Read the ' + esc(m.name) + ' guide</a></div>';
   }).join("");
 }
 
@@ -56,8 +56,11 @@ function buildCalendarHtml(data) {
 }
 
 function buildFaqHtml(items) {
+  // Mirrors renderFAQ() in the page so post-paint hydration is a no-op visually.
   return items.map(function (it) {
-    return '<div class="faq-item"><h3 class="faq-q">' + esc(it.q) + '</h3><div class="faq-a">' + esc(it.a) + "</div></div>";
+    return '<div class="faq-item"><h3 class="faq-h"><button class="faq-q" aria-expanded="false" onclick="toggleFAQ(this)">' + esc(it.q) +
+      '<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="9" y1="3" x2="9" y2="15"/><line x1="3" y1="9" x2="15" y2="9"/></svg></button></h3>' +
+      '<div class="faq-a">' + esc(it.a) + "</div></div>";
   }).join("\n");
 }
 

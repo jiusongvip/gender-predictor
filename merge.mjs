@@ -78,7 +78,7 @@ export async function buildMergedIndex() {
     "<style>\n" +
     styleBlocks.join("\n") +
     "\n.spa-merged { border-top: 2px solid var(--border,#e8e5ec); margin-top: 48px; padding-top: 24px; }" +
-    "\n.spa-back-top { display:inline-block; margin:8px 0 20px; padding:8px 16px; border:1.5px solid var(--border,#e8e5ec); border-radius:999px; color:var(--accent,#7b6b9a); text-decoration:none; font-size:.8125rem; font-weight:600; font-family:'Outfit',system-ui,sans-serif; }" +
+    "\n.spa-back-top { display:inline-block; margin:8px 0 20px; padding:8px 16px; border:1.5px solid var(--border,#e8e5ec); border-radius:999px; color:var(--accent,#6b5a8a); text-decoration:none; font-size:.8125rem; font-weight:600; font-family:'Outfit',system-ui,sans-serif; }" +
     "\n</style>";
 
   // 2. Merge all sub-page <main> into sections.

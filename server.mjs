@@ -7,6 +7,7 @@ import { Readable } from "node:stream";
 import { extractMain, extractHead, enhancePage } from "./extract-fragments.mjs";
 import { buildMergedIndex } from "./merge.mjs";
 import { serverRenderHome } from "./scripts/ssr-home.mjs";
+import { externalizeAppScript } from "./scripts/externalize-script.mjs";
 import { ROUTES } from "./routes.mjs";
 
 const CACHE_CONTROL_HTML = "no-store, no-cache, must-revalidate, max-age=0";
@@ -92,11 +93,23 @@ async function buildMeta() {
   return meta;
 }
 
+// Mirrors build.mjs: the homepage's inline app script is externalized + deferred.
+// Dev keeps the emitted file in memory so /assets/<hashed>.js resolves.
+const emittedAssets = new Map();
+
+function renderHomeHtml() {
+  return buildMergedIndex().then((merged) => {
+    const out = externalizeAppScript(serverRenderHome(merged.html), "home");
+    if (out.file) emittedAssets.set(out.file.name, out.file.code);
+    return out.html;
+  });
+}
+
 async function serveEnhancedPage(req, res, id) {
   const html = await readPage(id);
   if (!html) return false;
   if (id === "index") {
-    sendRaw(res, serverRenderHome((await buildMergedIndex()).html));
+    sendRaw(res, await renderHomeHtml());
     return true;
   }
   sendRaw(res, enhancePage(html, id));
@@ -105,6 +118,19 @@ async function serveEnhancedPage(req, res, id) {
 
 const server = createServer(async (req, res) => {
   let urlPath = req.url.split("?")[0];
+
+  // ── extracted app scripts (dev parity with build) ──
+  if (urlPath.startsWith("/assets/")) {
+    const name = decodeURIComponent(urlPath.slice("/assets/".length));
+    const code = emittedAssets.get(name);
+    if (code) {
+      res.writeHead(200, { "Content-Type": "text/javascript; charset=utf-8", "Cache-Control": "no-store" });
+      res.end(code);
+      return;
+    }
+    if (await sendFile(req, res, join(PUBLIC, "assets", name))) return;
+    return notFound(res);
+  }
 
   // ── SPA fragments ──
   if (urlPath.startsWith("/_assets/frag/")) {
@@ -128,9 +154,17 @@ const server = createServer(async (req, res) => {
   }
 
   // Static files from public/
+  if (urlPath === "/sitemap.xml") {
+    // mirrors the production 301 in _redirects (single canonical sitemap file)
+    res.writeHead(301, { Location: "/sitemap-index.xml" });
+    res.end();
+    return;
+  }
   if (urlPath === "/robots.txt" || urlPath === "/llms.txt" || urlPath === "/og-image.svg" ||
-      urlPath === "/og-image.png" ||
-      urlPath === "/sitemap-index.xml" || urlPath === "/sitemap.xml" || urlPath === "/favicon.ico") {
+      urlPath === "/og-image.png" || urlPath === "/favicon.svg" || urlPath === "/favicon.ico" ||
+      urlPath === "/apple-touch-icon.png" || urlPath === "/icon-192.png" || urlPath === "/icon-512.png" ||
+      urlPath === "/site.webmanifest" ||
+      urlPath === "/sitemap-index.xml") {
     const fp = join(PUBLIC, urlPath.slice(1));
     const fp2 = (urlPath === "/sitemap-index.xml" || urlPath === "/sitemap.xml") ? join(ROOT, "sitemap-index.xml") : null;
     if (await sendFile(req, res, fp)) return;
@@ -153,7 +187,7 @@ const server = createServer(async (req, res) => {
   if (urlPath === "/") urlPath = "/index.html";
   const pathId = (urlPath.split("?")[0].replace(/^\/+|\/+$/g, "").replace(/\.html$/, "")) || "index";
   // map enhanced page for any known route
-  if (urlPath === "/index.html") { sendRaw(res, serverRenderHome((await buildMergedIndex()).html)); return; }
+  if (urlPath === "/index.html") { sendRaw(res, await renderHomeHtml()); return; }
   if (ROUTES[pathId]) {
     if (await serveEnhancedPage(req, res, pathId)) return;
   }

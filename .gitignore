@@ -4,9 +4,6 @@ node_modules/
 # Build output
 dist/
 
-# Images (generated, not source)
-public/images/*.webp
-
 # IDE
 .vscode/
 .qoder/

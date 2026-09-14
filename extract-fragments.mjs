@@ -95,13 +95,13 @@ export function enhancePage(html, id) {
     .filter(([h]) => !out.includes('href="' + h + '"'));
   if (trust.length) {
     const row = '\n    <div style="width:100%;text-align:center;font-size:.8125rem;">' +
-      trust.map(([h, t]) => '<a href="' + h + '" style="color:var(--accent,#7b6b9a);text-decoration:none;">' + t + '</a>').join('<span style="margin:0 10px;color:var(--border,#e8e5ec);">&middot;</span>') +
+      trust.map(([h, t]) => '<a href="' + h + '" style="color:var(--accent,#6b5a8a);text-decoration:none;">' + t + '</a>').join('<span style="margin:0 10px;color:var(--border,#e8e5ec);">&middot;</span>') +
       "</div>";
     out = out.replace(/<\/footer>/i, row + "\n  </footer>");
   }
 
-  // Inject router script right before </body>.
-  out = out.replace(/<\/body>/i, '<script src="/router.js"></script>\n</body>');
+  // Inject router script right before </body> (deferred: never blocks parsing).
+  out = out.replace(/<\/body>/i, '<script src="/router.js" defer></script>\n</body>');
 
   return out;
 }

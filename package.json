@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "powershell -File start.ps1",
     "dev:raw": "node server.mjs",
-    "build": "node build.mjs",
+    "build": "node scripts/gen-icons.mjs && node build.mjs",
     "start": "node server.mjs"
   },
   "keywords": ["gender-predictor", "chinese-gender-predictor", "baby-gender-prediction"],

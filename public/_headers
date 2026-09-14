@@ -1,11 +1,11 @@
 # Cloudflare Pages headers for caching and security
 #
-# HTML edge caching: Pages only caches an HTML document at the edge when the
-# response carries a non-zero max-age — s-maxage alone is ignored and every
-# visit then costs a ~900 ms origin round trip (cf-cache-status: DYNAMIC), which
-# is what made PSI's mobile LCP swing between 1.7 s (warm) and 4.3 s (cold).
-# A 30 s browser max-age keeps that staleness window invisible to users while
-# letting the edge serve the document; Pages purges on every deploy.
+# HTML caching: a non-zero max-age is necessary but NOT sufficient on Pages -
+# the edge keeps answering cf-cache-status: DYNAMIC for documents until a zone
+# "Cache Rules" entry marks / as cache-eligible (dashboard-only, cannot be set
+# from this repo). Keep the 30 s browser reuse regardless: it lets a back/forward
+# or repeated navigation render without a round trip. PSI's mobile LCP swings
+# 1.7 s -> 4.3 s purely on that origin round trip (~800 ms from Asia).
 /*
   Cache-Control: public, max-age=30, s-maxage=3600, stale-while-revalidate=86400
   X-Frame-Options: DENY

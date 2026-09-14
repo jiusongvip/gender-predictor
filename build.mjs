@@ -3,6 +3,7 @@ import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { extractMain, extractHead, enhancePage } from "./extract-fragments.mjs";
 import { buildMergedIndex } from "./merge.mjs";
+import { serverRenderHome } from "./scripts/ssr-home.mjs";
 import { ROUTES } from "./routes.mjs";
 
 const ROOT = fileURLToPath(new URL(".", import.meta.url));
@@ -18,7 +19,7 @@ await mkdir(DIST, { recursive: true });
 // index.html — ALL content merged into one page (tools, methods, comparisons,
 // blog, about, privacy). Sections anchored as #sec-<id>; nav scrolls to them.
 const merged = await buildMergedIndex();
-await writeFile(join(DIST, "index.html"), merged.html);
+await writeFile(join(DIST, "index.html"), serverRenderHome(merged.html));
 
 // Full pages stay in dist -> SEO deep links + no-JS still work.
 // Directory format: dist/<route>/index.html so /about/ serves 200 directly

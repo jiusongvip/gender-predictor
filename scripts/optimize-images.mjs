@@ -10,9 +10,10 @@ import { fileURLToPath } from "node:url";
 
 const DIR = join(fileURLToPath(new URL(".", import.meta.url)), "..", "public", "images");
 // Chrome picks the smallest candidate >= (sizes * DPR). PSI's emulated device is
-// 412 CSS px at 2.625 DPR and sizes describes ~380 px -> it wants ~1000 device px,
-// so a 900w step would be skipped: 600w + 1200w is the useful pair.
-const WIDTHS = [600, 1200];
+// 412 CSS px at 2.625 DPR and sizes describes ~380 px, so it needs ~1000 device
+// px and was forced up to the 1200w file. 1000w is the same quality at ~0.7x the
+// pixels; 1200w still serves DPR 3 phones (412 * 3 = 1236 -> next step up).
+const WIDTHS = [600, 1000, 1200];
 
 for (const f of readdirSync(DIR).filter((n) => n.endsWith(".webp") && !/-\d+w\.webp$/.test(n))) {
   const src = join(DIR, f);

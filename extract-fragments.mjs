@@ -38,9 +38,11 @@ export function extractHead(html) {
 // og:image by Facebook/X and most social platforms).
 const OG_IMAGE = "https://www.gender-predictor.com/og-image.png";
 
-// Defer the gtag.js download (~510 KB) until after window load so it does not
-// compete with HTML/font/CSS in the critical rendering path (mobile LCP).
-// The dataLayer + config still queue immediately; the script loads post-paint.
+// Keep gtag.js (172 KB, ~267 ms of main thread) out of the load window entirely:
+// it starts on the first real interaction, or on an idle callback a couple of
+// seconds after load, whichever comes first. The dataLayer + config still queue
+// immediately, so nothing is lost except sessions that bounce before the timer.
+// The preconnect pays back the TLS round trip that the delayed start costs.
 export function deferGtag(html) {
   const idm = html.match(/gtag\/js\?id=([A-Z0-9-]+)/i);
   if (!idm) return html;
@@ -49,10 +51,18 @@ export function deferGtag(html) {
     /<script async src="https:\/\/www\.googletagmanager\.com\/gtag\/js\?id=[A-Z0-9-]+"><\/script>\s*/i,
     ""
   );
-  out = out.replace(
-    /(gtag\('config',\s*'[A-Z0-9-]+'\);)/i,
-    "$1\n  window.addEventListener('load',function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=" + id + "';document.head.appendChild(s);});"
-  );
+  if (!/rel="preconnect" href="https:\/\/www\.googletagmanager\.com"/i.test(out)) {
+    out = out.replace(/<\/head>/i, '  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>\n</head>');
+  }
+  const boot =
+    "function __gpLoadGA(){if(window.__gpGA)return;window.__gpGA=1;" +
+    "var s=document.createElement('script');s.async=true;" +
+    "s.src='https://www.googletagmanager.com/gtag/js?id=" + id + "';document.head.appendChild(s);}" +
+    "['pointerdown','keydown','wheel','touchstart','scroll'].forEach(function(e){" +
+    "window.addEventListener(e,__gpLoadGA,{once:true,passive:true});});" +
+    "window.addEventListener('load',function(){" +
+    "if(window.requestIdleCallback)requestIdleCallback(__gpLoadGA,{timeout:2500});else setTimeout(__gpLoadGA,2500);});";
+  out = out.replace(/(gtag\('config',\s*'[A-Z0-9-]+'\);)/i, "$1\n  " + boot);
   return out;
 }
 

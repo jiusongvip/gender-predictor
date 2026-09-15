@@ -38,10 +38,11 @@ export function extractHead(html) {
 // og:image by Facebook/X and most social platforms).
 const OG_IMAGE = "https://www.gender-predictor.com/og-image.png";
 
-// Keep gtag.js (172 KB, ~267 ms of main thread) out of the load window entirely:
-// it starts on the first real interaction, or on an idle callback a couple of
-// seconds after load, whichever comes first. The dataLayer + config still queue
-// immediately, so nothing is lost except sessions that bounce before the timer.
+// Keep gtag.js (172 KB, 106-286 ms of main thread) out of the load window: it
+// starts on the first real interaction, or once the page has been idle for a
+// while after load, whichever comes first. The dataLayer + config still queue
+// immediately, so engaged sessions all report; only drive-bys that never touch
+// the page and leave inside the idle window are lost.
 // The preconnect pays back the TLS round trip that the delayed start costs.
 export function deferGtag(html) {
   const idm = html.match(/gtag\/js\?id=([A-Z0-9-]+)/i);
@@ -61,7 +62,7 @@ export function deferGtag(html) {
     "['pointerdown','keydown','wheel','touchstart','scroll'].forEach(function(e){" +
     "window.addEventListener(e,__gpLoadGA,{once:true,passive:true});});" +
     "window.addEventListener('load',function(){" +
-    "if(window.requestIdleCallback)requestIdleCallback(__gpLoadGA,{timeout:2500});else setTimeout(__gpLoadGA,2500);});";
+    "if(window.requestIdleCallback)requestIdleCallback(__gpLoadGA,{timeout:8000});else setTimeout(__gpLoadGA,8000);});";
   out = out.replace(/(gtag\('config',\s*'[A-Z0-9-]+'\);)/i, "$1\n  " + boot);
   return out;
 }
